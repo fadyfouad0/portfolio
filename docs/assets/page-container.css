@@ -1,0 +1,54 @@
+/* ============================================================
+   Portfolio — shared page container
+   --------------------------------------------------------------
+   SINGLE SOURCE OF TRUTH for the site's max content width and
+   horizontal gutters. Linked into every page AFTER its inline
+   <style>, so these rules win the cascade and standardise the
+   container everywhere. Change values here once and every current
+   + future page that links this file updates together.
+
+   Model:
+     - Full-bleed by default. Sections, backgrounds, hero areas,
+       colour bands, image strips, headers and footers span the
+       FULL viewport width — they are not constrained here.
+     - Only actual CONTENT sits in the centred, padded column:
+       give that block class="wrap" (or "container"). Inside a
+       full-bleed coloured section, put a .wrap around its text/
+       cards so the background bleeds but the content lines up.
+
+   Container:
+     --page-max     centred content column, ~1200px
+     padding-inline clamp(12px, 3vw, 24px) — always symmetric,
+                      ~12px mobile / ~16px tablet / 24px desktop
+   ============================================================ */
+
+:root {
+  --page-max: 1200px;
+  --page-gutter: clamp(12px, 3vw, 24px);
+}
+
+.wrap,
+.container {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* "Next case study" footer spans the FULL viewport width across
+   every project — released from the 1200px column, but keeps the
+   site's standard symmetric gutter so content isn't jammed to the
+   screen edge. */
+.cs-next {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--page-gutter);
+}
+
+/* Deliberate full-bleed opt-out for any element that would
+   otherwise be contained: spans the viewport with no gutter. */
+.bleed {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
