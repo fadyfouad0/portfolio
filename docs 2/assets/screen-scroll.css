@@ -1,0 +1,33 @@
+/* Screen frames — direction 02: bottom fade + standing cue.
+   Real user-controlled scrolling (wheel / trackpad / touch / drag),
+   soft edge fades that imply more content, and a persistent cue pill
+   that steps aside once the reader engages. */
+.ss-frame{position:relative}
+.ss-frame .ss-scroller{position:absolute;inset:0;overflow:hidden;overscroll-behavior:contain;scrollbar-width:none;pointer-events:none;touch-action:pan-y}
+.ss-frame.ss-on .ss-scroller{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;pointer-events:auto;touch-action:pan-y;cursor:grab}
+.ss-frame.ss-on .ss-scroller:active{cursor:grabbing}
+.ss-frame .ss-guard{position:absolute;inset:0;z-index:5;appearance:none;-webkit-appearance:none;border:0;padding:0;margin:0;background:transparent;cursor:pointer;font:inherit;color:inherit}
+.ss-frame.ss-on .ss-guard{display:none}
+.ss-frame.ss-static .ss-guard{display:none;pointer-events:none}
+.ss-frame::before{content:"";position:absolute;inset:0;z-index:8;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 0 var(--ss-accent,#221812);opacity:0;transition:opacity .25s,box-shadow .25s}
+.ss-frame.ss-on::before{opacity:.9;box-shadow:inset 0 0 0 2px var(--ss-accent,#221812)}
+.ss-frame .ss-guard:focus-visible{outline:2px solid var(--ss-accent,#221812);outline-offset:-3px}
+.ss-frame .ss-scroller::-webkit-scrollbar{width:0;height:0}
+.ss-frame .ss-scroller img{display:block;transform:none!important;transition:none!important;animation:none!important}
+.ss-frame::after{display:none!important}
+.ss-frame .ss-fade{position:absolute;left:0;right:0;pointer-events:none;z-index:6;transform-origin:bottom center;transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
+.ss-frame .ss-fade.gone{opacity:0;transform:translateY(14px) scaleY(.6)}
+@media (prefers-reduced-motion:reduce){.ss-frame .ss-fade{transition:opacity .2s linear}.ss-frame .ss-fade.gone{transform:none}}
+.ss-frame .ss-fade.bot{bottom:0;height:96px;background:linear-gradient(to top,rgba(var(--ss-fade-rgb,10,9,8),.82),rgba(var(--ss-fade-rgb,10,9,8),0))}
+.ss-frame .ss-fade.top{display:none}
+.ss-frame .ss-cue{position:absolute;z-index:7;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:6px 13px;border-radius:99px;white-space:nowrap;pointer-events:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ss-ink,#fff);background:var(--ss-accent,#221812);box-shadow:0 8px 18px rgba(0,0,0,.28);transition:opacity .35s,transform .35s}
+.ss-frame .ss-cue.gone{opacity:0;transform:translateX(-50%) translateY(8px)}
+.ss-frame .ss-cue svg{width:11px;height:11px;animation:ssbob 1.5s ease-in-out infinite}
+@keyframes ssbob{0%,100%{transform:translateY(-1px)}50%{transform:translateY(2px)}}
+.ss-frame.ss-sm .ss-cue{font-size:8.5px;letter-spacing:.1em;padding:5px 10px;bottom:12px;gap:6px}
+.ss-frame.ss-sm .ss-cue svg{width:9px;height:9px}
+.ss-frame.ss-sm .ss-fade.bot{height:70px}
+.ss-frame.ss-static .ss-cue,.ss-frame.ss-static .ss-fade{display:none}
+/* retire the old hover-only hints */
+.scroll-hint,.bw-hint{display:none!important}
+@media (prefers-reduced-motion:reduce){.ss-frame .ss-cue svg{animation:none}}
