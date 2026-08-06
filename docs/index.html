@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fady Fouad · UI/UX Designer, Cairo</title>
@@ -319,6 +320,8 @@
     .hero-pattern .bar { display: none; }
     .hero-pattern .star-field .tw.sm { display: none; }
   }
+  .hero-fold { display: contents; }
+  .hsc-fold { display: none; }
   .hero-meta {
     display: flex; justify-content: space-between;
     font-family: 'JetBrains Mono', monospace;
@@ -1296,26 +1299,30 @@
     .nav-burger { width: 44px; height: 44px; }
 
     /* Hero, enlarged mobile layout */
-    .hero { padding-top: 92px; padding-bottom: 96px; min-height: 124svh; display: flex; flex-direction: column; overflow-x: clip; }
-    .hero-meta { flex-direction: column; gap: 10px; align-items: flex-start; font-size: 10px; padding-bottom: 18px; }
-    .hero-title { font-size: clamp(84px, 23.5vw, 190px); padding-top: 40px; line-height: 0.9; letter-spacing: -0.045em; }
-    .hero-title .mark { width: 1.02em; height: 1.02em; vertical-align: -0.16em; margin: 0 0.08em; }
-    .hero-bottom { margin-top: auto; padding-top: 24px; gap: 20px; }
+    .hero { padding-top: 104px; padding-bottom: clamp(44px, 9vh, 76px); min-height: 100svh; height: auto; max-height: none; display: flex; flex-direction: column; justify-content: flex-start; overflow-x: clip; }
+    .hero-fold { display: flex; flex-direction: column; justify-content: space-between; min-height: calc(100svh - 104px); flex: 0 0 auto; }
+    .hsc-fold { display: flex; position: static; left: auto; bottom: auto; transform: none; margin: 0; padding-top: 8px; opacity: 0.75; }
+    .hero-meta { flex-direction: column; gap: 10px; align-items: flex-start; font-size: 11px; padding-bottom: 0; flex: 0 0 auto; }
+    .hero-title { flex: 0 0 auto; margin: 0; font-size: clamp(70px, 22vw, 170px); padding: 0; line-height: 0.94; letter-spacing: -0.06em; }
+    .hero-title .mark { width: 1.42em; height: 1.42em; vertical-align: -0.32em; margin: 0 0.05em; }
+    .hero-bottom { margin-top: clamp(48px, 11vh, 96px); padding-top: 0; gap: 14px; flex: 0 0 auto; }
     .hero-bottom > div:empty { display: none; }
-    .hero-blurb { font-size: 16px; line-height: 1.5; max-width: 100%; }
+    .hero-blurb { font-size: 14.5px; line-height: 1.6; max-width: 34ch; }
     .hero-scroll { display: none; }            /* replaced by prominent cue below */
+    .hero > .hero-scroll-cue { display: none; }
     .hero-scroll-cue {
       display: flex;
       position: static;
       transform: none;
       left: auto; bottom: auto;
-      margin: 36px auto 0;
+      margin: 18px auto 0;
     }
     /* Simpler decorative backdrop on mobile */
     nav.top ul { display: none; }
     .nav-burger { display: flex; }
     .hero-pattern .arcs { display: none; }
-    .hero-pattern .flow, .hero-pattern .flow-star { display: none; }
+    .hero-pattern .flow { display: block; opacity: 0.5; }
+    .hero-pattern .flow-star { display: none; }
     .hero-pattern { background-image: none; -webkit-mask-image: none; mask-image: none; opacity: 1; }
     .hero-pattern .bar { display: none; }
     /* drop the big starfield on mobile, one quiet mark instead */
@@ -1507,6 +1514,7 @@
     </div>
     <span class="flow-star">✦</span>
   </div>
+  <div class="hero-fold">
   <div class="hero-meta">
     <div id="clock">Cairo, EG · 00:00</div>
   </div>
@@ -1519,6 +1527,8 @@
     <span style="color: var(--espresso);">of</span> <em>useful</em><br/>
     <span class="marked" style="color: var(--espresso);">interfaces.</span>
   </h1>
+  <div class="hero-scroll-cue hsc-fold" aria-hidden="true"><span>Scroll to explore</span><span class="hsc-arrow"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v10M2 6.5l4.5 4.5L11 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  </div>
 
   <div class="hero-bottom">
     <div class="blurb-wrap">
@@ -1596,7 +1606,7 @@
     </div>
   </a>
 
-  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="assets/leblog-home.jpg" href="case-studies/ai-assistants.html">
+  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/Le Blog du Dirigeant Homepage.png" href="case-studies/ai-assistants.html">
     <div class="project-num">/02</div>
     <div class="project-info">
       <h3>Le Blog du <em>Dirigeant</em></h3>

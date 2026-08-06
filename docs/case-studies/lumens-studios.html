@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script>(function(){try{var t=localStorage.getItem('fady-theme');var dark=t?(t==='dark'):(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);if(dark)document.documentElement.classList.add('dark-pending');}catch(e){}})();</script>
@@ -2686,7 +2687,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#C8FF3C;--cvd:#0B0B0B">
-  <img class="cvh-img" src="../assets/lumens-cover.jpg" alt="Lumens Studios keyboard cover" />
+  <picture><source media="(max-width:860px)" srcset="../assets/lumens-cover-mobile.png" /><img class="cvh-img" src="../assets/lumens-cover.jpg" alt="Lumens Studios keyboard cover" /></picture>
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">Studio · Brand</span><h1 class="cvh-title">Lumens <em>Studios.</em></h1></div>
   </div>
@@ -3272,5 +3273,19 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </script>
 <script>(function(){var b=document.getElementById('mmWork'),s=document.getElementById('mmSub');if(!b||!s)return;b.addEventListener('click',function(){var o=!s.classList.contains('open');s.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))})})();</script>
 <script src="../assets/screen-scroll.js"></script>
+
+<style>/* mobile menu, match landing page */
+.mobile-menu{justify-content:center;padding:0 34px;overflow-y:auto}
+.mobile-menu.has-open{justify-content:flex-start;padding-top:96px;padding-bottom:96px}
+.mobile-menu{--pc-ink:#65788F;--rust:#65788F}
+body.dark .mobile-menu{--pc-ink:#8FA1B8;--rust:#8FA1B8}
+.mobile-menu-foot{position:absolute;left:34px;bottom:40px;margin-top:0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust)}
+.mobile-menu .mm-sub a.here .t,.mobile-menu .mm-sub a.all .t,.mobile-menu .mm-sub a.all .idx{color:var(--pc-ink)}
+.mobile-menu a .idx,.mm-work .idx{color:#65788F}
+body.dark .mobile-menu a .idx,body.dark .mm-work .idx{color:#8FA1B8}
+
+</style>
+<script>(function(){var m=document.getElementById('mobileMenu'),b=document.getElementById('mmWork');if(!m||!b)return;
+b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('has-open',b.getAttribute('aria-expanded')==='true');},0);});})();</script>
 </body>
 </html>
