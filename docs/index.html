@@ -377,7 +377,7 @@
     width: 100%; height: 100%;
     border-radius: 999px;
     object-fit: cover;
-    object-position: 50% 52%;
+    object-position: 50% 50%;
     display: block;
     filter: contrast(1.02) saturate(0.96);
     box-shadow: 0 0 0 1px var(--line), 0 18px 40px -16px rgba(34, 24, 18, 0.45);
@@ -445,8 +445,20 @@
     font-family: 'Instrument Serif', serif; font-size: 20px; color: var(--rust); opacity: 0.5;
   }
   @media (max-width: 960px) { .blurb-slot { width: 72px; height: 72px; } .blurb-wrap { gap: 18px; } }
+  /* mobile: hand the roll to the compositor via a scroll-driven animation so it
+     never depends on JS frames landing during momentum scroll */
+  @keyframes roll-mob {
+    from { transform: translate3d(var(--rsx), var(--rsy), 0) scale(1); }
+    to   { transform: translate3d(var(--rtx), var(--rty), 0) scale(var(--rk)); }
+  }
+  .roll-portrait.css-roll {
+    animation: roll-mob linear both;
+    animation-timeline: scroll(root block);
+    animation-timing-function: ease-in-out;
+  }
   .roll-portrait {
     position: absolute; left: 0; top: 0; z-index: 6;
+    transform-origin: 0 0; backface-visibility: hidden;
     pointer-events: none; will-change: transform;
     display: none;
   }
@@ -454,7 +466,7 @@
     width: 100%; height: 100%;
     border-radius: 999px;
     object-fit: cover;
-    object-position: 50% 52%;
+    object-position: 50% 50%;
     display: block;
     filter: contrast(1.02) saturate(0.96);
     box-shadow: 0 0 0 1px var(--line), 0 18px 40px -16px rgba(34, 24, 18, 0.45);
@@ -879,7 +891,8 @@
     border-radius: 999px;
     transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
   }
-  .home-cv-btn:hover .arrow { transform: translate(2px, -2px); }
+  .home-cv-btn:hover .arrow { transform: scale(1.12); }
+  .home-cv-btn .arrow svg { width: 14px; height: 14px; display: block; }
   .home-cv-meta {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
@@ -1219,6 +1232,9 @@
   .scroll-rail a:hover { opacity: 1; }
   @media (max-width: 1200px) { .scroll-rail { display: none; } }
 
+
+  .hero-title .mark img, .roll-portrait img, .blurb-slot img { background: radial-gradient(120% 120% at 50% 0%, #F3E7CE 0%, #E3CFA6 55%, #D3B98A 100%); }
+  body.dark .hero-title .mark img, body.dark .roll-portrait img, body.dark .blurb-slot img { background: radial-gradient(120% 120% at 50% 0%, #2C2C2C 0%, #1A1A1A 60%, #101010 100%); }
   /* DARK MODE */
   body.dark {
     --cream:        #000000;
@@ -1395,13 +1411,112 @@
     .hero-pattern .star { left: 4vw; bottom: 8vh; font-size: clamp(36px, 9vw, 60px); }
 
     /* Animations cost on small screens, quieter mark */
-    .hero-title .mark::before { display: none; }
+    .hero-title .mark::before, .hero-title .mark::after { display: none; }
   }
   @media (max-width: 420px) {
     .nav.top ul li:nth-child(2) { display: none; } /* hide About link, keep Work/Contact */
     .contact-grid > a { flex: 1 1 100%; }
     .project-tags span { font-size: 10px; padding: 5px 8px; }
   }
+
+nav.top .has-cs{position:relative;padding-bottom:20px;margin-bottom:-20px}
+nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
+nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
+nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
+nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+
+nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
+nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
+nav.top .has-cs:hover .cs-drop,nav.top .has-cs:focus-within .cs-drop{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0) scale(1);pointer-events:auto}
+nav.top .cs-drop .dh{display:flex;align-items:baseline;justify-content:space-between;padding:12px 16px 9px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#A69C93;border-bottom:1px solid rgba(34,24,18,0.07)}
+nav.top .cs-drop .dl{padding:6px}
+nav.top .cs-drop a.pr{position:relative;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:2px 12px;padding:10px 12px 10px 10px;border-radius:11px;color:var(--espresso);overflow:hidden;transition:background .22s}
+nav.top .cs-drop a.pr .idx{grid-row:span 2;font-family:'Instrument Serif',Georgia,serif;font-size:25px;line-height:1;text-align:center;color:var(--pc-ink,var(--pc));opacity:.42;transition:opacity .22s,transform .3s cubic-bezier(.2,.8,.2,1)}
+nav.top .cs-drop a.pr .nm{font-size:14px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+nav.top .cs-drop a.pr .tg{grid-column:2;font-size:10.5px;letter-spacing:.02em;color:#A2978D;white-space:nowrap}
+nav.top .cs-drop a.pr .ar{grid-row:span 2;font-size:13px;opacity:0;transform:translateX(-5px);transition:opacity .22s,transform .28s cubic-bezier(.2,.8,.2,1);color:var(--pc-ink,var(--pc))}
+nav.top .cs-drop a.pr::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:2.5px;border-radius:0 3px 3px 0;background:var(--pc);transform:scaleY(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc) 11%,transparent)}
+nav.top .cs-drop a.pr:hover::before{transform:scaleY(1)}
+nav.top .cs-drop a.pr:hover .idx{opacity:1;transform:translateY(-1px)}
+nav.top .cs-drop a.pr:hover .ar{opacity:1;transform:translateX(0)}
+nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc) 13%,transparent)}
+nav.top .cs-drop a.pr.here::before{transform:scaleY(1)}
+nav.top .cs-drop a.pr.here .idx{opacity:1}
+nav.top .cs-drop a.pr.here .ar{display:none}
+nav.top .cs-drop a.pr .hpill{grid-row:span 2;display:inline-flex;align-items:center;gap:5px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pc-ink,var(--pc));border:1px solid color-mix(in srgb,var(--pc) 45%,transparent);border-radius:999px;padding:3px 7px 3px 6px;white-space:nowrap}
+nav.top .cs-drop a.pr .hpill i{width:5px;height:5px;border-radius:999px;background:var(--pc);animation:hpulse 1.9s ease-in-out infinite}
+@keyframes hpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border-top:1px solid rgba(34,24,18,0.07);font-size:12px;font-weight:500;color:#7A6E64;transition:background .2s}
+nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
+nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
+body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
+body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
+body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
+body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
+body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
+body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
+body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+@media(max-width:880px){nav.top .cs-drop{display:none}}
+
+.mobile-menu{overflow-y:auto;padding-top:96px;padding-bottom:96px;justify-content:flex-start}
+.mm-work{appearance:none;background:transparent;border:0;width:100%;text-align:left;cursor:pointer;font-family:'Instrument Serif',serif;font-size:clamp(46px,14vw,76px);line-height:1.04;letter-spacing:-0.02em;color:var(--espresso);display:flex;align-items:baseline;gap:14px;padding:8px 0}
+.mm-work .idx{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--rust);letter-spacing:.06em}
+.mm-work .cv{width:22px;height:22px;margin-left:auto;align-self:center;transition:transform .34s cubic-bezier(.2,.8,.2,1);opacity:.45}
+.mm-work[aria-expanded="true"] .cv{transform:rotate(180deg);opacity:.9}
+.mm-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.2,.8,.2,1)}
+.mm-sub>.cl{overflow:hidden;min-height:0}
+.mm-sub.open{grid-template-rows:1fr}
+.mm-sub .in{display:flex;flex-direction:column;gap:2px;padding:10px 0 22px 22px;border-left:1px solid var(--line,rgba(34,24,18,.14));margin-left:2px}
+.mobile-menu .mm-sub a{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:14px;row-gap:1px;padding:13px 4px;min-height:58px;font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--espresso)}
+.mobile-menu .mm-sub a::before{content:"";position:absolute;left:-23px;top:50%;width:12px;height:1px;background:var(--pc-ink);opacity:.35;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.mobile-menu .mm-sub a .idx{grid-row:span 2;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1;letter-spacing:.06em;color:var(--pc-ink);opacity:.65;min-width:24px}
+.mobile-menu .mm-sub a .t{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.15}
+.mobile-menu .mm-sub a .m{grid-column:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--espresso-soft);opacity:.6}
+.mobile-menu .mm-sub a .ar{grid-row:span 2;font-size:15px;color:var(--pc-ink);opacity:.45}
+.mobile-menu .mm-sub a.here .idx,.mobile-menu .mm-sub a.here .ar{opacity:1}
+.mobile-menu .mm-sub a.here::before{transform:scaleX(1);opacity:1}
+.mobile-menu .mm-sub a.here .t{color:var(--pc-ink)}
+.mobile-menu .mm-sub a.here .m{color:var(--pc-ink);opacity:.9}
+.mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
+.mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
+.mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
+body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
+body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
+body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
+.mobile-menu-foot{position:static;margin-top:26px}
+
+.mobile-menu-foot{position:absolute;left:34px;bottom:40px;margin-top:0;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust)}
+.mobile-menu .mm-sub a.here .t,.mobile-menu .mm-sub a.all .t,.mobile-menu .mm-sub a.all .idx{color:var(--pc-ink)}
+.mobile-menu a .idx,.mm-work .idx{color:#65788F}
+body.dark .mobile-menu a .idx,body.dark .mm-work .idx{color:#8FA1B8}
+.mobile-menu .mm-sub a.pr .idx,.mobile-menu .mm-sub a.pr .ar{color:var(--pc-ink)!important}
+body.dark .mobile-menu .mm-sub a.pr .idx,body.dark .mobile-menu .mm-sub a.pr .ar{color:var(--pc-dk,var(--pc-ink))!important}
+.mobile-menu .mm-sub a.pr.here .t,.mobile-menu .mm-sub a.pr.here .m{color:var(--pc-ink)!important}
+body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.here .m{color:var(--pc-dk,var(--pc-ink))!important}
+
+
+
+  /* CV overlay — reading only */
+  .cv-ov{position:fixed;inset:0;z-index:400;display:none}
+  .cv-ov.on{display:block}
+  .cv-ov::before{content:"";position:absolute;inset:0;background:rgba(34,24,18,0.78);backdrop-filter:blur(7px);animation:cvFade .3s ease both}
+  @keyframes cvFade{from{opacity:0}to{opacity:1}}
+  @keyframes cvRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .cv-ov-frame{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(18px,4vh,56px);overflow:hidden}
+  #cvCanvas{display:block;max-width:100%;height:auto;border-radius:3px;background:#fff;box-shadow:0 34px 70px -34px rgba(0,0,0,0.55);animation:cvRise .38s cubic-bezier(.2,.8,.2,1) both}
+  .cv-ov-x{position:absolute;z-index:3;top:20px;right:20px;width:44px;height:44px;display:grid;place-items:center;border-radius:99px;border:1px solid rgba(248,244,236,0.34);background:transparent;color:rgba(248,244,236,0.85);font-size:15px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+  .cv-ov-x:hover{background:rgba(248,244,236,0.95);color:var(--espresso);border-color:transparent}
+  .cv-ov-fb{display:grid;place-items:center;gap:16px;text-align:center;padding:32px;font-size:15px;color:rgba(248,244,236,0.75)}
+  .cv-ov-fb a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:99px;background:var(--cream);color:var(--espresso);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+  .home-cv-stack[data-cv-open]{cursor:pointer}
+  .home-cv-stack[data-cv-open]:focus-visible{outline:2px solid var(--rust);outline-offset:6px}
+  @media (max-width:700px){.cv-ov-frame{padding:14px}}
 </style>
 <style id="artistic-layer">
   /* ---- hand-inked underline marks (draw-on) ---- */
@@ -1477,7 +1592,18 @@
     <b>Fady Fouad</b>
   </a>
   <ul>
-    <li><a href="#work">Work</a></li>
+    <li class="has-cs"><a class="wk" href="#work">Work<svg class="wk-cv" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></a>
+      <div class="cs-drop">
+        <div class="dh"><span>Selected work</span><span>2024 — 26</span></div>
+        <div class="dl">
+        <a class="pr" href="case-studies/lumens-studios.html" style="--pc:#C8FF3C;--pc-ink:#5E7E00"><span class="idx">01</span><span class="nm">Lumens Studios</span><span class="tg">Web Design · 2025</span><span class="ar">→</span></a>
+        <a class="pr" href="case-studies/ai-assistants.html" style="--pc:#7B4FBF;--pc-ink:#7B4FBF"><span class="idx">02</span><span class="nm">Le Blog du Dirigeant</span><span class="tg">AI Product · 2025</span><span class="ar">→</span></a>
+        <a class="pr" href="case-studies/inofficeplus.html" style="--pc:#50ACE4;--pc-ink:#2A7FB4"><span class="idx">03</span><span class="nm">InOfficePlus</span><span class="tg">Global Hiring · 2025</span><span class="ar">→</span></a>
+        <a class="pr" href="case-studies/green-city.html" style="--pc:#01613A;--pc-ink:#01613A;--pc-dk:#4FD397"><span class="idx">04</span><span class="nm">Green City</span><span class="tg">Hospitality Redesign · 2024</span><span class="ar">→</span></a>
+        </div>
+        <a class="df" href="#work"><span>See all work</span><span class="fx">04 PROJECTS →</span></a>
+      </div>
+    </li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1491,7 +1617,10 @@
 <!-- Mobile menu (mobile only) -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <ul>
-    <li><a href="#work"><span class="idx">01</span>Work</a></li>
+    <li class="mm-has">
+      <button class="mm-work" id="mmWork" aria-expanded="false" aria-controls="mmSub"><span class="idx">01</span>Work<svg class="cv" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></button>
+      <div class="mm-sub" id="mmSub"><div class="cl"><div class="in"><a class="pr" href="case-studies/lumens-studios.html" style="--pc-ink:#5E7E00;--pc-dk:#C8FF3C"><span class="idx">01</span><span class="t">Lumens Studios</span><span class="m">Web Design · 2025</span><span class="ar">→</span></a><a class="pr" href="case-studies/ai-assistants.html" style="--pc-ink:#7B4FBF;--pc-dk:#C8A9F0"><span class="idx">02</span><span class="t">Le Blog du Dirigeant</span><span class="m">AI Product · 2025</span><span class="ar">→</span></a><a class="pr" href="case-studies/inofficeplus.html" style="--pc-ink:#2A7FB4;--pc-dk:#8FD0F5"><span class="idx">03</span><span class="t">InOfficePlus</span><span class="m">Global Hiring · 2025</span><span class="ar">→</span></a><a class="pr" href="case-studies/green-city.html" style="--pc-ink:#01613A;--pc-dk:#5FD3A0"><span class="idx">04</span><span class="t">Green City</span><span class="m">Hospitality Redesign · 2024</span><span class="ar">→</span></a><a class="all" href="#work"><span class="idx">↗</span><span class="t">See all work</span></a></div></div></div>
+    </li>
     <li><a href="#about"><span class="idx">02</span>About</a></li>
     <li><a href="#contact"><span class="idx">03</span>Contact</a></li>
   </ul>
@@ -1522,7 +1651,7 @@
   <h1 class="hero-title">
     <span style="color: var(--espresso);">
     hey,</span> <em>i'm</em><br/>
-    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img src="assets/fady-portrait.jpg" alt="Fady Fouad portrait" /></span><br/>
+    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img src="assets/fady-portrait-v13.jpg" alt="Fady Fouad portrait" /></span><br/>
     <span style="color: var(--espresso);">a</span> <em>designer</em><br/>
     <span style="color: var(--espresso);">of</span> <em>useful</em><br/>
     <span class="marked" style="color: var(--espresso);">interfaces.</span>
@@ -1606,7 +1735,7 @@
     </div>
   </a>
 
-  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/Le Blog du Dirigeant Homepage.png" href="case-studies/ai-assistants.html">
+  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/leblog-home-shot.jpg" href="case-studies/ai-assistants.html">
     <div class="project-num">/02</div>
     <div class="project-info">
       <h3>Le Blog du <em>Dirigeant</em></h3>
@@ -1620,7 +1749,7 @@
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="assets/le-blog-du-dirigeant-cover.jpg" alt="Le Blog du Dirigeant, AI assistants platform cover" />
+      <img src="uploads/bloggg.jpg" alt="Le Blog du Dirigeant, AI assistants platform cover" />
       <div class="ph-tag">/02</div>
     </div>
   </a>
@@ -1639,7 +1768,7 @@
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="assets/inofficeplus-cover.jpg" alt="InOfficePlus, marketing site cover" />
+      <img src="uploads/inoffii.jpg" alt="InOfficePlus, marketing site cover" />
       <div class="ph-tag">/03</div>
     </div>
   </a>
@@ -1658,7 +1787,7 @@
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="assets/green-city-cover.jpg" alt="Green City, sustainability platform cover" />
+      <img src="uploads/grnnew.jpg" alt="Green City, sustainability platform cover" />
       <div class="ph-tag">/04</div>
     </div>
   </a>
@@ -1669,33 +1798,25 @@
   <div class="wrap">
     <div class="home-cv-text">
       <div class="home-cv-eyebrow reveal">CV · PDF</div>
-      <h2 class="reveal">The <em>two-page</em><br/>version of all this.</h2>
-      <p class="home-cv-blurb reveal">The case studies are the long story. The CV is the fast one, <em>roles, tools, references</em> and everything I've shipped, in two pages.</p>
+      <h2 class="reveal">The <em>one-page</em><br/>version of all this.</h2>
+      <p class="home-cv-blurb reveal">The case studies are the long story. The CV is the fast one, <em>roles, tools, references</em> and everything I've shipped, on one page.</p>
       <div class="home-cv-actions reveal">
-        <a class="home-cv-btn" data-cta="ask for it" href="#contact">
-          Request CV
-          <span class="arrow" aria-hidden="true">→</span>
-        </a>
+        <button class="home-cv-btn" type="button" data-cv-open data-cta="open it">
+          View CV
+        </button>
         <div class="home-cv-meta">
-          <b>PDF · 2 pages</b>
-          Sent on request · Updated May 2026
+          <b>PDF · 1 page</b>
+          Updated August 2026 · ~114&nbsp;KB
         </div>
       </div>
     </div>
 
-    <div class="home-cv-stack reveal" aria-hidden="true">
-      <div class="cv-page back">
-        <div class="pg-sec">Experience, cont.</div>
-        <div class="pg-lines">
-          <div class="ln" style="width: 90%;"></div>
-          <div class="ln" style="width: 72%;"></div>
-        </div>
-      </div>
+    <div class="home-cv-stack reveal" data-cv-open role="button" tabindex="0" aria-label="Open CV">
       <div class="cv-page front">
         <div class="cv-stamp">CV<br/>2026</div>
         <div class="pg-bar">
           <span>Fady Fouad · CV</span>
-          <span class="pg-chip">1 / 2</span>
+          <span class="pg-chip">1 / 1</span>
         </div>
         <div class="pg-name">Fady <em>Fouad.</em></div>
         <div class="pg-role">UI / UX Designer · Cairo, EG · GMT +2</div>
@@ -1716,7 +1837,7 @@
         </div>
         <div class="pg-foot">
           <span>EN · AR · FR</span>
-          <span>Updated May 2026</span>
+          <span>Updated August 2026</span>
         </div>
       </div>
     </div>
@@ -1869,20 +1990,79 @@
     // scroll distance over which the portrait rolls: on mobile the hero is much
     // taller, so tie it to hero height so the roll finishes as the blurb arrives.
     const range = isMobile ? Math.max(520, Math.round(heroEl.offsetHeight * 0.6)) : 620;
-    const arcMax = isMobile ? 54 : 130;   // gentler arc on narrow screens
+    const arcMax = isMobile ? 54 : 0;   // desktop: straight line home, no loft
     // smoothed render position so the roll glides instead of snapping to each
     // (often jerky) mobile scroll sample
     let cx = null, cy = null, cw = null;
-    const smooth = isMobile ? 0.16 : 0.28;
-    (function frame() {
-      // re-measure live every frame so the portrait always tracks the mark /
-      // target circle, even when the layout changes (fullscreen ↔ editor, resize,
-      // late font load) without a clean resize event.
+    const smooth = 1;
+    // measure on layout changes only — a getBoundingClientRect trio every frame
+    // forces a sync layout and is what made this stutter on phones.
+    measure();
+    let base = s.w || 1;
+    roll.style.width = base + 'px';
+    roll.style.height = base + 'px';
+    const remeasure = () => {
       measure();
-      const p = Math.min(1, Math.max(0, (window.scrollY || 0) / range));
+      const w = s.w || base;
+      if (Math.abs(w - base) > 0.5) { base = w; roll.style.width = base + 'px'; roll.style.height = base + 'px'; }
+    };
+    addEventListener('resize', remeasure, { passive: true });
+    addEventListener('orientationchange', remeasure, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+    // the mark collapses once the <img> is lifted out of it, so the first
+    // measurement is stale — re-read after layout settles.
+    let refreshHooks = [];
+    function refresh() { refreshHooks.forEach(fn => fn()); }
+    requestAnimationFrame(() => requestAnimationFrame(refresh));
+    document.addEventListener('fullscreenchange', () => { refresh(); setTimeout(refresh, 250); });
+    document.addEventListener('webkitfullscreenchange', () => { refresh(); setTimeout(refresh, 250); });
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(() => refresh());
+      ro.observe(heroEl); ro.observe(slot);
+    }
+    addEventListener('load', refresh);
+    setTimeout(refresh, 400);
+    setTimeout(refresh, 1200);
+    // preferred path on phones: a compositor-driven scroll animation
+    const canCssRoll = isMobile && window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll(root block)');
+    if (canCssRoll) {
+      const setVars = () => {
+        remeasure();
+        const k = t.w / base;
+        const mx = (s.x + t.x) / 2, my = (s.y + t.y) / 2 - arcMax, mk = (1 + k) / 2;
+        roll.style.setProperty('--rsx', s.x + 'px');
+        roll.style.setProperty('--rsy', s.y + 'px');
+        roll.style.setProperty('--rmx', mx + 'px');
+        roll.style.setProperty('--rmy', my + 'px');
+        roll.style.setProperty('--rmk', mk);
+        roll.style.setProperty('--rtx', t.x + 'px');
+        roll.style.setProperty('--rty', t.y + 'px');
+        roll.style.setProperty('--rk', k);
+        roll.style.animationRange = '0px ' + range + 'px';
+      };
+      setVars();
+      roll.classList.add('css-roll');
+      refreshHooks.push(setVars);
+      addEventListener('resize', setVars, { passive: true });
+      addEventListener('orientationchange', setVars, { passive: true });
+      return;
+    }
+    let lastY = -1, settled = 0;
+    refreshHooks.push(() => { remeasure(); settled = 0; lastY = -1; });
+    (function frame() {
+      const sy = window.scrollY || 0;
+      const p = Math.min(1, Math.max(0, sy / range));
+      // idle short-circuit: only once the easing has actually converged
+      if (sy === lastY && settled) { requestAnimationFrame(frame); return; }
+      lastY = sy;
+      // the hero title parallaxes as you scroll, so the mark and the blurb circle
+      // MOVE — read them live every rendered frame or the photo drifts out of its ring
+      if (!isMobile) { measure(); base = s.w || base; roll.style.width = base + 'px'; roll.style.height = base + 'px'; }
       const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; // easeInOut
       let x = s.x + (t.x - s.x) * e;
-      const arc = arcMax * Math.sin(Math.PI * e);
+      // position must be a pure function of scroll, so up and down trace the same
+      // line and p === 0 always lands exactly in the hero circle
+      const arc = arcMax * Math.sin(Math.PI * e) * Math.min(1, p * 6, (1 - p) * 6);
       const y = s.y + (t.y - s.y) * e - arc;
       const w = s.w + (t.w - s.w) * e;
       // keep the portrait fully inside the hero so it never creates horizontal scroll
@@ -1893,10 +2073,12 @@
       cx = cx === null ? x : cx + (x - cx) * smooth;
       cy = cy === null ? y : cy + (y - cy) * smooth;
       cw = cw === null ? w : cw + (w - cw) * smooth;
-      const sq = 1 + 0.05 * Math.sin(e * Math.PI * 2) * (1 - e);
-      roll.style.width = cw + 'px';
-      roll.style.height = cw + 'px';
-      roll.style.transform = `translate(${cx}px, ${cy}px) scale(${1 / sq}, ${sq})`;
+      if (Math.abs(x - cx) < 0.25 && Math.abs(y - cy) < 0.25 && Math.abs(w - cw) < 0.25) {
+        cx = x; cy = y; cw = w; settled = 1;   // snap, then idle until scroll moves
+      } else { settled = 0; }
+      const sq = 1;
+      const k = cw / base;
+      roll.style.transform = `translate3d(${cx}px, ${cy}px, 0) scale(${k / sq}, ${k * sq})`;
       requestAnimationFrame(frame);
     })();
   })();
@@ -1995,6 +2177,68 @@
 
 })();
 </script><script src="assets/cursor.js"></script>
+<style>html,body{overflow-x:hidden;-webkit-text-size-adjust:100%}</style>
+<script>(function(){var b=document.getElementById('mmWork'),s=document.getElementById('mmSub');if(!b||!s)return;b.addEventListener('click',function(){var o=!s.classList.contains('open');s.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))})})();</script>
+<script>(function(){var m=document.getElementById('mobileMenu'),b=document.getElementById('mmWork');if(!m||!b)return;
+b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('has-open',b.getAttribute('aria-expanded')==='true');},0);});})();</script>
+<div class="cv-ov" id="cvOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fady Fouad CV">
+  <div class="cv-ov-frame" id="cvCanvasWrap">
+    <canvas id="cvCanvas"></canvas>
+    <div class="cv-ov-fb" id="cvFallback" hidden>
+      <p>Couldn’t render the preview.</p>
+      <a href="assets/fady-fouad-cv.pdf" target="_blank" rel="noopener">Open the CV →</a>
+    </div>
+  </div>
+  <button class="cv-ov-x" type="button" data-cv-close aria-label="Close">✕</button>
+</div>
+<script>
+(function(){var ov=document.getElementById('cvOverlay');if(!ov)return;
+var src='assets/fady-fouad-cv.pdf',last=null,rendered=false;
+var cv=document.getElementById('cvCanvas'),fb=document.getElementById('cvFallback');
+function loadPdfJs(){return new Promise(function(res,rej){
+  if(window.pdfjsLib)return res(window.pdfjsLib);
+  var s=document.createElement('script');
+  s.src='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js';
+  s.onload=function(){
+    var wsrc='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    // same-origin blob worker: a plain cross-origin worker URL is refused in
+    // sandboxed/opaque-origin contexts and then render() never settles
+    fetch(wsrc).then(function(r){return r.text();}).then(function(t){
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));
+    }).catch(function(){window.pdfjsLib.GlobalWorkerOptions.workerSrc=wsrc;})
+      .then(function(){res(window.pdfjsLib);});
+  };
+  s.onerror=rej;document.head.appendChild(s);});}
+function fail(){cv.hidden=true;fb.hidden=false;}
+function render(){
+  if(rendered)return;rendered=true;
+  // a blocked cross-origin pdf.js worker HANGS instead of rejecting, so the
+  // fallback is driven by a timeout, not only by catch()
+  var done=false,timer=setTimeout(function(){if(!done)fail();},4000);
+  loadPdfJs().then(function(lib){return lib.getDocument(src).promise;}).then(function(doc){return doc.getPage(1);}).then(function(page){
+    var wrap=document.getElementById('cvCanvasWrap');
+    var cs2=getComputedStyle(wrap),padX=parseFloat(cs2.paddingLeft)*2,padY=parseFloat(cs2.paddingTop)*2;
+    var base=page.getViewport({scale:1});
+    // fit the page to the shorter axis so the whole sheet is readable at once
+    var w=Math.max(280,Math.min(wrap.clientWidth-padX,(wrap.clientHeight-padY)*(base.width/base.height)));
+    var vp=page.getViewport({scale:(w/base.width)*Math.min(2,window.devicePixelRatio||1)});
+    cv.width=vp.width;cv.height=vp.height;cv.style.width=w+'px';cv.style.height='auto';
+    return page.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;
+  }).then(function(){done=true;clearTimeout(timer);cv.hidden=false;fb.hidden=true;})
+    .catch(function(){done=true;clearTimeout(timer);rendered=false;fail();});
+}
+function open(e){if(e)e.preventDefault();last=document.activeElement;render();
+ov.classList.add('on');ov.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+var x=ov.querySelector('[data-cv-close]');if(x)x.focus();}
+function close(){ov.classList.remove('on');ov.setAttribute('aria-hidden','true');document.body.style.overflow='';if(last&&last.focus)last.focus();}
+document.querySelectorAll('[data-cv-open]').forEach(function(el){
+  el.addEventListener('click',open);
+  el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){open(ev);}});
+});
+ov.addEventListener('click',function(ev){if(ev.target!==cv)close();});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&ov.classList.contains('on'))close();});
+})();
+</script>
 </body>
 </html>
 

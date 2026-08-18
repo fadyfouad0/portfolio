@@ -833,9 +833,9 @@ nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{trans
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
 body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
 
-nav.top .cs-drop{position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
+nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
-nav.top .has-cs:hover .cs-drop,nav.top .has-cs:focus-within .cs-drop{opacity:1;transform:translateX(-50%) translateY(0) scale(1);pointer-events:auto}
+nav.top .has-cs:hover .cs-drop,nav.top .has-cs:focus-within .cs-drop{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0) scale(1);pointer-events:auto}
 nav.top .cs-drop .dh{display:flex;align-items:baseline;justify-content:space-between;padding:12px 16px 9px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#A69C93;border-bottom:1px solid rgba(34,24,18,0.07)}
 nav.top .cs-drop .dl{padding:6px}
 nav.top .cs-drop a.pr{position:relative;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:2px 12px;padding:10px 12px 10px 10px;border-radius:11px;color:var(--espresso);overflow:hidden;transition:background .22s}
@@ -954,7 +954,12 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 .cvh .cvh-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--cva)}
 .cvh .cvh-lede{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(14px,1.1vw,17px);line-height:1.5;color:rgba(255,255,255,0.82);max-width:42ch;margin:0}
 .cvh .cvh-lede em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--cva)}
-@media(max-width:860px){.cvh .cvh-bar{flex-direction:column;align-items:flex-start;gap:18px;padding-top:clamp(90px,26vh,160px)}.cvh .cvh-l{gap:8px}}
+.cvh .cvh-mob{display:none}
+@media(max-width:860px){.cvh .cvh-bar{flex-direction:column;align-items:flex-start;gap:18px;padding-top:clamp(90px,26vh,160px)}.cvh .cvh-l{gap:8px}
+.cvh{background:#1A3D7C}
+.cvh picture,.cvh .cvh-img{display:none!important}
+.cvh .cvh-mob{display:block;position:absolute;top:var(--iop-top,84px);left:0;right:0;width:100%;height:calc(100% - var(--iop-top,84px) - var(--iop-bot,220px));max-width:none;object-fit:contain;object-position:center center;z-index:1;pointer-events:none}
+.cvh .cvh-bar{position:absolute;left:0;right:0;bottom:0;z-index:3}}
 
   /* dark mode: no light stroke around screen frames */
   body.dark .bw,
@@ -975,6 +980,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#5FB8ED;--cvd:#081326">
   <picture><source media="(max-width:860px)" srcset="../assets/inoffice-cover-mobile.png" /><img class="cvh-img" src="../uploads/inoffii.jpg" alt="InOfficePlus services page" /></picture>
+  <img class="cvh-mob" src="../uploads/Inofficeplus12.png" alt="InOfficePlus mobile site" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">SaaS · Payroll &amp; EOR</span><h1 class="cvh-title">InOffice<em>Plus.</em></h1></div>
   </div>
@@ -1290,19 +1296,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       }, 200);
     });
   });
-  // touch devices: tap a browser/phone frame to run the scroll preview
-  if (matchMedia('(hover: none)').matches) {
-    document.querySelectorAll('.bw-hint').forEach(h => { h.textContent = 'Tap to scroll'; });
-    document.querySelectorAll('.bw, .pf').forEach(el => {
-      const view = el.querySelector('.bw-view, .pf-view');
-      const img = view && view.querySelector('img');
-      if (!img) return;
-      el.addEventListener('click', () => {
-        const on = el.classList.toggle('is-peek');
-        img.style.transform = on ? `translateY(calc(-100% + ${view.clientHeight}px))` : '';
-      });
-    });
-  }
+  // touch devices: screen-scroll.js owns tap-to-scroll on the frames
   // reveal
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
@@ -1406,9 +1400,47 @@ body.dark .mobile-menu{--pc-ink:#8FA1B8;--rust:#8FA1B8}
 .mobile-menu .mm-sub a.here .t,.mobile-menu .mm-sub a.all .t,.mobile-menu .mm-sub a.all .idx{color:var(--pc-ink)}
 .mobile-menu a .idx,.mm-work .idx{color:#65788F}
 body.dark .mobile-menu a .idx,body.dark .mm-work .idx{color:#8FA1B8}
+.mobile-menu .mm-sub a.pr .idx,.mobile-menu .mm-sub a.pr .ar{color:var(--pc-ink)!important}
+body.dark .mobile-menu .mm-sub a.pr .idx,body.dark .mobile-menu .mm-sub a.pr .ar{color:var(--pc-dk,var(--pc-ink))!important}
+.mobile-menu .mm-sub a.pr.here .t,.mobile-menu .mm-sub a.pr.here .m{color:var(--pc-ink)!important}
+body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.here .m{color:var(--pc-dk,var(--pc-ink))!important}
 
 </style>
 <script>(function(){var m=document.getElementById('mobileMenu'),b=document.getElementById('mmWork');if(!m||!b)return;
 b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('has-open',b.getAttribute('aria-expanded')==='true');},0);});})();</script>
+
+
+<style>/* mobile: screens match green city, one width + one height */
+@media (max-width:880px){
+.show .bw,.bw-solo,.bw-solo .bw,.eor-pair .bw,.eor-card .bw{margin-inline:0!important;width:100%!important;max-width:100%!important;border-radius:10px!important}
+.svc-panel .bw{margin-inline:-16px!important;width:auto!important;max-width:none!important;border-radius:10px!important}
+.bw-view,.eor-card .bw-view,.bw-solo .eor-card .bw-view,.svc-panel .bw-view{height:64vh!important;min-height:0!important;max-height:none!important}
+}
+@media (hover:none){
+.bw:hover .bw-view img,.eor-card .bw:hover .bw-view img,.bw-solo .eor-card .bw:hover .bw-view img,.svc-panel .bw:hover .bw-view img,
+.bw.is-peek .bw-view img{transform:none!important}
+}
+</style>
+
+<style>/* touch: hover transforms must not fight the tap-to-scroll frames */
+@media (hover:none){
+.bw:hover .bw-view img,.bw.is-peek .bw-view img,.pf:hover .pf-view img,.pf.is-peek .pf-view img,
+.browser:hover .scroll-inner img,.browser-dark:hover .scroll-inner img,
+.stage-vis .stage-browser:hover .scroll-inner img,
+.browser.scrolled .scroll-inner img,.browser-dark.scrolled .scroll-inner img,
+.stage-vis .stage-browser.scrolled .scroll-inner img{transform:none!important}
+}
+</style>
+<script>
+(function(){var hero=document.querySelector('.cvh'),bar=hero&&hero.querySelector('.cvh-bar'),nv=document.querySelector('nav.top'),mob=hero&&hero.querySelector('.cvh-mob');
+if(!hero||!bar||!mob)return;
+function fit(){if(window.innerWidth>860){hero.style.removeProperty('--iop-top');hero.style.removeProperty('--iop-bot');return;}
+var h=hero.getBoundingClientRect(),b=bar.getBoundingClientRect(),cs=getComputedStyle(bar),pt=parseFloat(cs.paddingTop)||0,textTop=b.top+pt;
+var navBottom=nv?nv.getBoundingClientRect().bottom:70;
+hero.style.setProperty('--iop-top',Math.max(0,navBottom-h.top+4)+'px');
+hero.style.setProperty('--iop-bot',Math.max(0,h.bottom-textTop+4)+'px');}
+fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
 </body>
 </html>
