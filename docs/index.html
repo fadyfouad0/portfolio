@@ -1566,6 +1566,13 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   #cvCanvas,#cvFrame{display:block;border-radius:3px;background:#fff;box-shadow:0 34px 70px -34px rgba(0,0,0,0.55);animation:cvRise .38s cubic-bezier(.2,.8,.2,1) both}
   #cvCanvas{max-width:100%;height:auto}
   @media (max-width:700px){.cv-ov-frame{place-items:start center}}
+  /* phones: the reader is fullscreen, close button pinned above it */
+  @media (max-width:700px){
+    .cv-ov{height:100svh}
+    .cv-ov-frame{padding:0}
+    #cvCanvas{width:100%!important;border-radius:0;box-shadow:none}
+    .cv-ov-x{position:fixed;top:14px;right:14px}
+  }
   .cv-ov-load{position:absolute;inset:0;display:none;place-items:center;gap:12px;grid-auto-flow:row;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,244,236,.7);z-index:2}
   .cv-ov-load.on{display:grid}
   .cv-ov-load i{width:26px;height:26px;border-radius:99px;border:1.5px solid rgba(248,244,236,.25);border-top-color:rgba(248,244,236,.85);animation:cvspin .8s linear infinite}
