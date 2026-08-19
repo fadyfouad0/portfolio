@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml" /><link rel="apple-touch-icon" href="favicon.svg?v=3" />
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fady Fouad · UI/UX Designer, Cairo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -257,7 +259,7 @@
     fill: none;
     stroke: var(--clay);
     stroke-width: 0.8;
-    opacity: 0.22;
+    opacity: 0.12;
     vector-effect: non-scaling-stroke;
   }
   .hero-pattern .flow-star {
@@ -574,7 +576,7 @@
   }
   .marquee-track .star {
     display: inline-block;
-    color: var(--clay);
+    color: var(--rust);
     font-style: normal;
     padding: 13px 24px;
   }
@@ -684,7 +686,7 @@
     margin-bottom: 18px;
     transition: color 0.3s;
   }
-  .project:hover .project-info h3 { color: var(--proj-ink); }
+  .project:hover .project-info h3 { color: var(--espresso); }
   .project-info h3 em {
     font-family: 'Instrument Serif', serif;
     font-style: italic;
@@ -706,10 +708,10 @@
     color: var(--espresso-soft);
   }
   .project-cs {
-    padding: 24px 26px;
-    background: rgba(34, 24, 18, 0.04);
-    border-radius: 6px;
-    border-left: 2px solid color-mix(in srgb, var(--proj) 45%, var(--line-strong));
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    border-left: 0;
   }
   .project-cs b {
     display: block;
@@ -733,7 +735,6 @@
     font-style: italic;
     color: var(--clay);
   }
-  .project:hover .project-cs { border-left-color: var(--proj-ink); }
   .project-cta {
     display: inline-flex; align-items: center; gap: 10px;
     margin-top: 24px;
@@ -824,7 +825,7 @@
   @media (max-width: 960px) {
     .project { grid-template-columns: 1fr; gap: 24px; }
     .project-num { padding-top: 0; }
-    .project-cs { padding: 18px; }
+    .project-cs { padding: 0; }
     .project-cs p { font-size: 15px; }
   }
 
@@ -1237,35 +1238,34 @@
   body.dark .hero-title .mark img, body.dark .roll-portrait img, body.dark .blurb-slot img { background: radial-gradient(120% 120% at 50% 0%, #2C2C2C 0%, #1A1A1A 60%, #101010 100%); }
   /* DARK MODE */
   body.dark {
-    --cream:        #000000;
-    --cream-2:      #121212;
+    --cream:        #0A0A0A;
+    --cream-2:      #141414;
     --sand:         #242424;
-    --clay:         #C49870;
-    --espresso:     #EDE7DA;
-    --espresso-soft:#CFC7B8;
+    --clay:         #B9BEC6;
+    --espresso:     #EDEDEA;
+    --espresso-soft:#C0C0BC;
     --rust:         #8FA1B8;
     --rust-deep:    #65788F;
     --moss:         #8DA374;
-    --line:         rgba(242, 234, 216, 0.10);
-    --line-strong:  rgba(242, 234, 216, 0.24);
-    background-color: #000000 !important;
+    --line:         rgba(238, 238, 235, 0.10);
+    --line-strong:  rgba(238, 238, 235, 0.24);
+    background-color: #0A0A0A !important;
     color: var(--espresso);
   }
-  body.dark .work::before { background: #000000; }
-  body.dark nav.top { background: rgba(20, 18, 16, 0.92); border-color: rgba(242, 234, 216, 0.2); color: #F2EAD8; }
-  body.dark nav.top ul a:hover { background: rgba(242, 234, 216, 0.09); color: #F2EAD8; }
-  body.dark .theme-toggle { border-color: rgba(242, 234, 216, 0.3); }
-  body.dark .theme-toggle:hover { border-color: #F2EAD8; }
+  body.dark .work::before { background: #0A0A0A; }
+  body.dark nav.top { background: rgba(18, 18, 18, 0.92); border-color: rgba(238, 238, 235, 0.2); color: #EDEDEA; }
+  body.dark nav.top ul a:hover { background: rgba(238, 238, 235, 0.09); color: #EDEDEA; }
+  body.dark .theme-toggle { border-color: rgba(238, 238, 235, 0.3); }
+  body.dark .theme-toggle:hover { border-color: #EDEDEA; }
   /* Paper grain becomes lighter in dark mode */
   body.dark::before {
-    background-image: radial-gradient(circle at 1px 1px, rgba(242,234,216,0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(238,238,235,0.05) 1px, transparent 0);
     mix-blend-mode: screen;
     opacity: 0.5;
   }
   body.dark .hero-title,
   body.dark .section-head h2,
   body.dark .project-info h3 { color: var(--espresso); }
-  body.dark .project-cs { background: rgba(242, 234, 216, 0.04); }
   body.dark .project::after { background: none; }
   body.dark .featured-badge { background: #C8FF3C; color: #221812; }
   body.dark .featured-badge::before { background: #221812; }
@@ -1277,14 +1277,14 @@
   body.dark .project[href*="inofficeplus"] { --proj: #50ACE4 !important; --proj-ink: #50ACE4 !important; }
   body.dark .scroll-rail a { color: var(--espresso-soft); }
   body.dark .scroll-rail a.active { color: var(--clay); }
-  body.dark .marquee { background: #000000; }
-  body.dark .marquee .ticker-live { background: #000000; color: var(--clay); }
+  body.dark .marquee { background: #0A0A0A; }
+  body.dark .marquee .ticker-live { background: #0A0A0A; color: var(--clay); }
   body.dark .marquee .ticker-live i { background: var(--clay); }
   body.dark .marquee-track, body.dark .marquee-track em { color: var(--espresso); }
   /* Contact section keeps dark identity but slightly differentiates */
-  body.dark .contact { background: #000000; }
+  body.dark .contact { background: #0A0A0A; }
   body.dark .contact h2 { color: var(--espresso); }
-  body.dark .big-fady { color: rgba(242, 234, 216, 0.08); }
+  body.dark .big-fady { color: rgba(238, 238, 235, 0.08); }
   body.dark .big-fady em { color: var(--rust); }
   /* Footer stays cream in dark mode */
   body.dark .site-foot { background: var(--cream); color: var(--espresso); }
@@ -1318,9 +1318,9 @@
     .hero { padding-top: 104px; padding-bottom: clamp(44px, 9vh, 76px); min-height: 100svh; height: auto; max-height: none; display: flex; flex-direction: column; justify-content: flex-start; overflow-x: clip; }
     .hero-fold { display: flex; flex-direction: column; justify-content: space-between; min-height: calc(100svh - 104px); flex: 0 0 auto; }
     .hsc-fold { display: flex; position: static; left: auto; bottom: auto; transform: none; margin: 0; padding-top: 8px; opacity: 0.75; }
-    .hero-meta { flex-direction: column; gap: 10px; align-items: flex-start; font-size: 11px; padding-bottom: 0; flex: 0 0 auto; }
-    .hero-title { flex: 0 0 auto; margin: 0; font-size: clamp(70px, 22vw, 170px); padding: 0; line-height: 0.94; letter-spacing: -0.06em; }
-    .hero-title .mark { width: 1.42em; height: 1.42em; vertical-align: -0.32em; margin: 0 0.05em; }
+    .hero-meta { flex-direction: column; gap: 10px; align-items: flex-end; text-align: right; font-size: 11px; padding-bottom: 24px; flex: 0 0 auto; }
+    .hero-title { flex: 0 0 auto; margin: 28px 0 0; font-size: clamp(70px, 22vw, 170px); padding: 0; line-height: 0.94; letter-spacing: -0.06em; }
+    .hero-title .mark { width: 1.1em; height: 1.1em; vertical-align: -0.2em; margin: 0 0.05em; }
     .hero-bottom { margin-top: clamp(48px, 11vh, 96px); padding-top: 0; gap: 14px; flex: 0 0 auto; }
     .hero-bottom > div:empty { display: none; }
     .hero-blurb { font-size: 14.5px; line-height: 1.6; max-width: 34ch; }
@@ -1337,19 +1337,14 @@
     nav.top ul { display: none; }
     .nav-burger { display: flex; }
     .hero-pattern .arcs { display: none; }
-    .hero-pattern .flow { display: block; opacity: 0.5; }
+    .hero-pattern .flow { display: block; opacity: 0.24; bottom: -27vh; }
+    .hero-pattern .flow path.w5, .hero-pattern .flow path.w6 { display: none; }
     .hero-pattern .flow-star { display: none; }
     .hero-pattern { background-image: none; -webkit-mask-image: none; mask-image: none; opacity: 1; }
     .hero-pattern .bar { display: none; }
-    /* drop the big starfield on mobile, one quiet mark instead */
+    /* drop the big starfield on mobile */
     .hero-pattern .star-field { display: none; }
-    .hero-pattern::after {
-      content: "✦";
-      position: absolute; top: 96px; right: 22px;
-      font-family: 'Instrument Serif', serif;
-      font-size: 30px; line-height: 1;
-      color: var(--clay); opacity: 0.4;
-    }
+    .hero-pattern::after { content: none; }
 
     /* Marquee */
     .marquee .ticker-live { padding: 11px 16px; }
@@ -1357,17 +1352,72 @@
     .marquee-track .star { padding: 11px 16px; }
 
     /* Work */
-    .work { padding-block: 70px 30px; }
-    .section-head { margin-bottom: 36px; padding-bottom: 16px; gap: 14px; }
-    .project { grid-template-columns: 1fr; gap: 0; padding: 34px 0; }
-    .project-num { display: none; }
-    .project-info h3 { font-size: clamp(32px, 9vw, 44px); margin-bottom: 14px; }
-    .project-tags { margin-bottom: 18px; }
-    .project-cs { padding: 18px; }
-    .project-cs p { font-size: 15px; }
-    .project-cs b { font-size: 10px; }
-    .project-cta { margin-top: 18px; }
-    .project-thumb { order: -1; aspect-ratio: 16/11; margin-bottom: 22px; }
+    .work { padding-block: 70px 0; --gutter: 28px; }
+    .section-head { margin-bottom: 0; padding-bottom: 16px; gap: 14px; }
+    /* Poster stack: full-bleed cover, title over the image */
+    .project {
+      display: flex; flex-direction: column; justify-content: flex-end;
+      height: 300px; gap: 0;
+      margin-inline: calc(50% - 50vw); width: 100vw;
+      padding: 0 var(--gutter) 20px;
+      border: 0;
+      overflow: hidden; isolation: isolate; align-items: stretch;
+    }
+    .project::after { display: none; }
+    .project-thumb {
+      position: absolute; inset: 0; z-index: 0;
+      order: 0; margin: 0; aspect-ratio: auto;
+      border: 0; border-radius: 0;
+    }
+    .project-thumb::after {
+      content: ""; position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to top, rgba(20,13,8,0.88) 0%, rgba(20,13,8,0.36) 46%, rgba(20,13,8,0.05) 100%);
+    }
+    .project-thumb .ph-tag { display: none; }
+    .project-num {
+      display: block; position: relative; z-index: 2; padding-top: 0;
+      font-size: 10px; letter-spacing: 0.16em;
+      color: rgba(248,244,236,0.72);
+      margin-bottom: 9px;
+    }
+    .project-info { position: relative; z-index: 2; }
+    .project-info h3,
+    body.dark .project-info h3 { font-size: clamp(28px, 8.2vw, 40px); margin-bottom: 12px; color: #F8F4EC; }
+    .project-info h3 em,
+    body.dark .project-info h3 em { color: #DBC79E; }
+    body.dark .project-info h3 em { color: #B9BEC6; }
+    /* tap/hover: first word stays cream, only the italic word takes the accent */
+    .project:hover .project-info h3,
+    .project:active .project-info h3,
+    body.dark .project:hover .project-info h3,
+    body.dark .project:active .project-info h3 { color: #F8F4EC; }
+    .project:hover .project-info h3 em,
+    .project:active .project-info h3 em,
+    body.dark .project:hover .project-info h3 em,
+    body.dark .project:active .project-info h3 em { color: var(--proj); }
+    /* lift the purple accent so it reads over the dark cover */
+    .project[href*="ai-assistants"] { --proj: #B79BEA !important; }
+    .project-tags span,
+    .project:hover .project-tags span,
+    .project:active .project-tags span { color: #F8F4EC; border-color: transparent; }
+    .project:hover .project-num,
+    .project:active .project-num { color: rgba(248,244,236,0.72); }
+    .project:hover .project-cta,
+    .project:active .project-cta,
+    .project:hover .project-cta .arrow,
+    .project:active .project-cta .arrow { color: #F8F4EC; }
+    .project-cs { display: none; }
+    .project-tags { margin-bottom: 0; gap: 0 14px; }
+    .project-tags span {
+      border: 0; padding: 0; font-size: 10px; letter-spacing: 0.08em;
+      color: rgba(248,244,236,0.78);
+    }
+    .project-tags span + span::before { content: "· "; }
+    .project-cta {
+      position: absolute; right: var(--gutter); bottom: 20px; z-index: 3;
+      margin-top: 0; gap: 0; font-size: 0; color: #F8F4EC;
+    }
+    .project-cta .arrow { font-size: 17px; }
 
     /* CV — flat full-width page on mobile (no tilt, no hover) */
     .home-cv { padding: 72px 0 56px; }
@@ -1416,7 +1466,8 @@
   @media (max-width: 420px) {
     .nav.top ul li:nth-child(2) { display: none; } /* hide About link, keep Work/Contact */
     .contact-grid > a { flex: 1 1 100%; }
-    .project-tags span { font-size: 10px; padding: 5px 8px; }
+    .project-tags span { font-size: 10px; padding: 0; }
+    .work { --gutter: 12px; }
   }
 
 nav.top .has-cs{position:relative;padding-bottom:20px;margin-bottom:-20px}
@@ -1424,7 +1475,7 @@ nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
 nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
 nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
-body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(238,238,235,0.09)}
 
 nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
@@ -1452,15 +1503,15 @@ nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-betwe
 nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
 nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
 body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
-body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(238,238,235,0.1)}
 body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
 body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
 body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
 body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
-body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
-body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+body.dark nav.top .cs-drop .df{border-color:rgba(238,238,235,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(238,238,235,0.07);color:#F2EAE0}
 @media(max-width:880px){nav.top .cs-drop{display:none}}
 
 .mobile-menu{overflow-y:auto;padding-top:96px;padding-bottom:96px;justify-content:flex-start}
@@ -1485,7 +1536,7 @@ body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2
 .mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
 .mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
 .mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
-body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mm-sub .in{border-color:rgba(238,238,235,.14)}
 body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
 body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
 body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
@@ -1506,17 +1557,26 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   .cv-ov{position:fixed;inset:0;z-index:400;display:none}
   .cv-ov.on{display:block}
   .cv-ov::before{content:"";position:absolute;inset:0;background:rgba(34,24,18,0.78);backdrop-filter:blur(7px);animation:cvFade .3s ease both}
+  body.dark .cv-ov::before{background:rgba(5,5,5,0.86)}
+  body.dark .cv-ov-x{background:rgba(10,10,10,0.72)}
   @keyframes cvFade{from{opacity:0}to{opacity:1}}
   @keyframes cvRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  .cv-ov-frame{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(18px,4vh,56px);overflow:hidden}
-  #cvCanvas{display:block;max-width:100%;height:auto;border-radius:3px;background:#fff;box-shadow:0 34px 70px -34px rgba(0,0,0,0.55);animation:cvRise .38s cubic-bezier(.2,.8,.2,1) both}
-  .cv-ov-x{position:absolute;z-index:3;top:20px;right:20px;width:44px;height:44px;display:grid;place-items:center;border-radius:99px;border:1px solid rgba(248,244,236,0.34);background:transparent;color:rgba(248,244,236,0.85);font-size:15px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+  .cv-ov-frame{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(14px,4vh,56px);overflow:auto;-webkit-overflow-scrolling:touch}
+  @media (max-width:700px){.cv-ov-frame{padding:8px}.cv-ov-x{top:12px;right:12px;width:38px;height:38px}}
+  #cvCanvas,#cvFrame{display:block;border-radius:3px;background:#fff;box-shadow:0 34px 70px -34px rgba(0,0,0,0.55);animation:cvRise .38s cubic-bezier(.2,.8,.2,1) both}
+  #cvCanvas{max-width:100%;height:auto}
+  @media (max-width:700px){.cv-ov-frame{place-items:start center}}
+  .cv-ov-load{position:absolute;inset:0;display:none;place-items:center;gap:12px;grid-auto-flow:row;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,244,236,.7);z-index:2}
+  .cv-ov-load.on{display:grid}
+  .cv-ov-load i{width:26px;height:26px;border-radius:99px;border:1.5px solid rgba(248,244,236,.25);border-top-color:rgba(248,244,236,.85);animation:cvspin .8s linear infinite}
+  @keyframes cvspin{to{transform:rotate(360deg)}}
+  #cvFrame{width:100%;height:100%;max-width:920px;border:0}
+  .cv-ov-x{position:absolute;z-index:3;top:20px;right:20px;width:44px;height:44px;display:grid;place-items:center;border-radius:99px;border:1px solid rgba(248,244,236,0.34);background:rgba(34,24,18,0.35);color:rgba(248,244,236,0.9);font-size:15px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
   .cv-ov-x:hover{background:rgba(248,244,236,0.95);color:var(--espresso);border-color:transparent}
   .cv-ov-fb{display:grid;place-items:center;gap:16px;text-align:center;padding:32px;font-size:15px;color:rgba(248,244,236,0.75)}
   .cv-ov-fb a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:99px;background:var(--cream);color:var(--espresso);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
   .home-cv-stack[data-cv-open]{cursor:pointer}
   .home-cv-stack[data-cv-open]:focus-visible{outline:2px solid var(--rust);outline-offset:6px}
-  @media (max-width:700px){.cv-ov-frame{padding:14px}}
 </style>
 <style id="artistic-layer">
   /* ---- hand-inked underline marks (draw-on) ---- */
@@ -1637,8 +1697,8 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
         <path d="M0,145 C480,75 960,215 1440,145"></path>
         <path d="M0,210 C480,140 960,280 1440,210"></path>
         <path d="M0,275 C480,205 960,345 1440,275"></path>
-        <path d="M0,340 C480,270 960,410 1440,340"></path>
-        <path d="M0,405 C480,335 960,475 1440,405"></path>
+        <path d="M0,340 C480,270 960,410 1440,340" class="w5"></path>
+        <path d="M0,405 C480,335 960,475 1440,405" class="w6"></path>
       </svg>
     </div>
     <span class="flow-star">✦</span>
@@ -1651,7 +1711,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   <h1 class="hero-title">
     <span style="color: var(--espresso);">
     hey,</span> <em>i'm</em><br/>
-    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img src="assets/fady-portrait-v13.jpg" alt="Fady Fouad portrait" /></span><br/>
+    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img src="assets/fady-portrait-v13.png" alt="Fady Fouad portrait" /></span><br/>
     <span style="color: var(--espresso);">a</span> <em>designer</em><br/>
     <span style="color: var(--espresso);">of</span> <em>useful</em><br/>
     <span class="marked" style="color: var(--espresso);">interfaces.</span>
@@ -1716,7 +1776,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
 2024–26.</h2>
   </div>
 
-  <a class="project reveal" data-color="rust" style="--proj:#C8FF3C;--proj-ink:#5E7E00;" data-preview="LUMENS / STUDIOS" data-shot="assets/lumens-screens/home.jpg" href="case-studies/lumens-studios.html">
+  <a class="project reveal" data-color="rust" style="--proj:#C8FF3C;--proj-ink:#5E7E00;" data-preview="LUMENS / STUDIOS" data-shot="assets/lumens-screens/home.png" href="case-studies/lumens-studios.html">
     <div class="project-num">/01</div>
     <div class="project-info">
       <h3>Lumens <em>Studios</em></h3>
@@ -1730,12 +1790,12 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="assets/lumens-cover.jpg" alt="Lumens Studios, keyboard cover with neon lime wordmark" />
+      <img src="assets/lumens-cover.png" alt="Lumens Studios, keyboard cover with neon lime wordmark" />
       <div class="ph-tag">/01</div>
     </div>
   </a>
 
-  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/leblog-home-shot.jpg" href="case-studies/ai-assistants.html">
+  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/Le Blog du Dirigeant Homepage.png" href="case-studies/ai-assistants.html">
     <div class="project-num">/02</div>
     <div class="project-info">
       <h3>Le Blog du <em>Dirigeant</em></h3>
@@ -1749,7 +1809,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/bloggg.jpg" alt="Le Blog du Dirigeant, AI assistants platform cover" />
+      <img src="uploads/bloggg.png" alt="Le Blog du Dirigeant, AI assistants platform cover" />
       <div class="ph-tag">/02</div>
     </div>
   </a>
@@ -1768,7 +1828,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/inoffii.jpg" alt="InOfficePlus, marketing site cover" />
+      <img src="uploads/inoffii.png" alt="InOfficePlus, marketing site cover" />
       <div class="ph-tag">/03</div>
     </div>
   </a>
@@ -1787,7 +1847,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/grnnew.jpg" alt="Green City, sustainability platform cover" />
+      <img src="uploads/grnnew.png" alt="Green City, sustainability platform cover" />
       <div class="ph-tag">/04</div>
     </div>
   </a>
@@ -1963,6 +2023,11 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
     });
   });
 
+  // one source of truth: the hero title only parallaxes on desktop, and both the
+  // parallax listener and the rolling portrait read this same flag
+  window.__heroParallax = !matchMedia('(max-width: 720px)').matches;
+  addEventListener('resize', () => { window.__heroParallax = !matchMedia('(max-width: 720px)').matches; }, { passive: true });
+
   // Rolling portrait, photo leaves its frame and rolls to the blurb on scroll
   (function () {
     const mark = document.querySelector('.hero-title .mark');
@@ -1983,14 +2048,17 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       const hr = heroEl.getBoundingClientRect();
       const mr = mark.getBoundingClientRect();
       const er = slot.getBoundingClientRect();
-      s = { x: mr.left - hr.left, y: mr.top - hr.top, w: mr.width };
+      // strip whatever parallax offset is applied right now, so s.y is the
+      // untransformed home position and the frame loop can add it back cheaply
+      const parNow = window.__heroParallax ? Math.min(window.scrollY || 0, innerHeight) * -0.18 : 0;
+      s = { x: mr.left - hr.left, y: mr.top - hr.top - parNow, w: mr.width };
       t = { x: er.left - hr.left, y: er.top - hr.top, w: er.width };
     }
     const isMobile = matchMedia('(max-width: 720px)').matches;
     // scroll distance over which the portrait rolls: on mobile the hero is much
     // taller, so tie it to hero height so the roll finishes as the blurb arrives.
     const range = isMobile ? Math.max(520, Math.round(heroEl.offsetHeight * 0.6)) : 620;
-    const arcMax = isMobile ? 54 : 0;   // desktop: straight line home, no loft
+    const arcMax = 0;   // straight line home in both directions
     // smoothed render position so the roll glides instead of snapping to each
     // (often jerky) mobile scroll sample
     let cx = null, cy = null, cw = null;
@@ -2055,15 +2123,17 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       // idle short-circuit: only once the easing has actually converged
       if (sy === lastY && settled) { requestAnimationFrame(frame); return; }
       lastY = sy;
-      // the hero title parallaxes as you scroll, so the mark and the blurb circle
-      // MOVE — read them live every rendered frame or the photo drifts out of its ring
-      if (!isMobile) { measure(); base = s.w || base; roll.style.width = base + 'px'; roll.style.height = base + 'px'; }
+      // the hero title parallaxes (translateY -0.18 * scroll), so the circle MOVES.
+      // add that offset analytically instead of re-measuring: no forced layout per
+      // frame, and no one-frame desync with the parallax listener.
+      const par = window.__heroParallax ? Math.min(sy, innerHeight) * -0.18 : 0;
       const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; // easeInOut
       let x = s.x + (t.x - s.x) * e;
       // position must be a pure function of scroll, so up and down trace the same
       // line and p === 0 always lands exactly in the hero circle
       const arc = arcMax * Math.sin(Math.PI * e) * Math.min(1, p * 6, (1 - p) * 6);
-      const y = s.y + (t.y - s.y) * e - arc;
+      // parallax applies at the hero end of the path and fades out as it leaves
+      const y = (s.y + par * (1 - e)) + (t.y - s.y) * e - arc;
       const w = s.w + (t.w - s.w) * e;
       // keep the portrait fully inside the hero so it never creates horizontal scroll
       const maxX = heroEl.offsetWidth - w;
@@ -2154,6 +2224,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   const heroTitle = document.querySelector('.hero-title');
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
+    if (!window.__heroParallax) return;
     if (heroTitle && y < window.innerHeight) {
       heroTitle.style.transform = `translateY(${y * -0.18}px)`;
       heroTitle.style.opacity = 1 - y / (window.innerHeight * 0.9);
@@ -2181,64 +2252,93 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
 <script>(function(){var b=document.getElementById('mmWork'),s=document.getElementById('mmSub');if(!b||!s)return;b.addEventListener('click',function(){var o=!s.classList.contains('open');s.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))})})();</script>
 <script>(function(){var m=document.getElementById('mobileMenu'),b=document.getElementById('mmWork');if(!m||!b)return;
 b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('has-open',b.getAttribute('aria-expanded')==='true');},0);});})();</script>
+
 <div class="cv-ov" id="cvOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fady Fouad CV">
-  <div class="cv-ov-frame" id="cvCanvasWrap">
-    <canvas id="cvCanvas"></canvas>
-    <div class="cv-ov-fb" id="cvFallback" hidden>
-      <p>Couldn’t render the preview.</p>
-      <a href="assets/fady-fouad-cv.pdf" target="_blank" rel="noopener">Open the CV →</a>
-    </div>
+  <div class="cv-ov-frame" id="cvWrap">
+    <canvas id="cvCanvas" hidden></canvas>
+    <div class="cv-ov-load" id="cvLoad" aria-hidden="true"><i></i><span>Loading CV</span></div>
+    <div class="cv-ov-fb" id="cvFallback" hidden><a href="assets/fady-fouad-cv.pdf" target="_blank" rel="noopener">Open the CV →</a></div>
   </div>
   <button class="cv-ov-x" type="button" data-cv-close aria-label="Close">✕</button>
 </div>
 <script>
-(function(){var ov=document.getElementById('cvOverlay');if(!ov)return;
-var src='assets/fady-fouad-cv.pdf',last=null,rendered=false;
-var cv=document.getElementById('cvCanvas'),fb=document.getElementById('cvFallback');
-function loadPdfJs(){return new Promise(function(res,rej){
+(function(){
+var ov=document.getElementById('cvOverlay');if(!ov)return;
+var wrap=document.getElementById('cvWrap'),cv=document.getElementById('cvCanvas'),fb=document.getElementById('cvFallback');
+var src='assets/fady-fouad-cv.pdf',last=null,started=false;
+var loadEl=document.getElementById('cvLoad');
+function busy(on){if(loadEl)loadEl.classList.toggle('on',!!on);}
+function fail(){cv.hidden=true;fb.hidden=false;busy(false);}
+function loadLib(){return new Promise(function(res,rej){
   if(window.pdfjsLib)return res(window.pdfjsLib);
   var s=document.createElement('script');
   s.src='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js';
   s.onload=function(){
-    var wsrc='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
-    // same-origin blob worker: a plain cross-origin worker URL is refused in
-    // sandboxed/opaque-origin contexts and then render() never settles
-    fetch(wsrc).then(function(r){return r.text();}).then(function(t){
+    var w='https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    fetch(w).then(function(r){return r.text();}).then(function(t){
       window.pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));
-    }).catch(function(){window.pdfjsLib.GlobalWorkerOptions.workerSrc=wsrc;})
-      .then(function(){res(window.pdfjsLib);});
+    }).catch(function(){window.pdfjsLib.GlobalWorkerOptions.workerSrc=w;}).then(function(){res(window.pdfjsLib);});
   };
   s.onerror=rej;document.head.appendChild(s);});}
-function fail(){cv.hidden=true;fb.hidden=false;}
-function render(){
-  if(rendered)return;rendered=true;
-  // a blocked cross-origin pdf.js worker HANGS instead of rejecting, so the
-  // fallback is driven by a timeout, not only by catch()
-  var done=false,timer=setTimeout(function(){if(!done)fail();},4000);
-  loadPdfJs().then(function(lib){return lib.getDocument(src).promise;}).then(function(doc){return doc.getPage(1);}).then(function(page){
-    var wrap=document.getElementById('cvCanvasWrap');
-    var cs2=getComputedStyle(wrap),padX=parseFloat(cs2.paddingLeft)*2,padY=parseFloat(cs2.paddingTop)*2;
-    var base=page.getViewport({scale:1});
-    // fit the page to the shorter axis so the whole sheet is readable at once
-    var w=Math.max(280,Math.min(wrap.clientWidth-padX,(wrap.clientHeight-padY)*(base.width/base.height)));
-    var vp=page.getViewport({scale:(w/base.width)*Math.min(2,window.devicePixelRatio||1)});
-    cv.width=vp.width;cv.height=vp.height;cv.style.width=w+'px';cv.style.height='auto';
-    return page.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;
-  }).then(function(){done=true;clearTimeout(timer);cv.hidden=false;fb.hidden=true;})
-    .catch(function(){done=true;clearTimeout(timer);rendered=false;fail();});
+var pageRef=null,drawW=0;
+function paint(){
+  if(!pageRef)return Promise.resolve();
+  var pad=parseFloat(getComputedStyle(wrap).paddingLeft)*2;
+  var base=pageRef.getViewport({scale:1});
+  var availW=wrap.clientWidth-pad, availH=wrap.clientHeight-pad;
+  // phones: use the full width (page scrolls) — fitting to height made it tiny
+  var dispW=innerWidth<=700?availW:Math.max(280,Math.min(availW,availH*(base.width/base.height)));
+  if(Math.abs(dispW-drawW)<1)return Promise.resolve();
+  drawW=dispW;
+  // rasterise for a crisp page, capped by a canvas pixel budget so phones stay safe
+  var dpr=Math.min(3,Math.max(2,window.devicePixelRatio||2));
+  var scale=(dispW/base.width)*dpr, BUDGET=innerWidth<=700?14e6:24e6;
+  if(base.width*scale*base.height*scale>BUDGET) scale=Math.sqrt(BUDGET/(base.width*base.height));
+  var vp=pageRef.getViewport({scale:scale});
+  cv.width=Math.round(vp.width);cv.height=Math.round(vp.height);
+  cv.style.width=dispW+'px';cv.style.height='auto';cv.hidden=false;fb.hidden=true;
+  return pageRef.render({canvasContext:cv.getContext('2d',{alpha:false}),viewport:vp}).promise.then(function(){busy(false);});
 }
+/* warm the library + first page up front so opening is instant */
+var warmed=null;
+function warm(){
+  if(warmed)return warmed;
+  warmed=loadLib().then(function(lib){return lib.getDocument(src).promise;}).then(function(doc){return doc.getPage(1);})
+    .then(function(page){pageRef=page;return page;});
+  return warmed;
+}
+function idle(fn){('requestIdleCallback'in window)?requestIdleCallback(fn,{timeout:3000}):setTimeout(fn,1200);}
+var conn=navigator.connection||{};
+if(!conn.saveData&&!/2g/.test(conn.effectiveType||''))addEventListener('load',function(){idle(function(){warm().catch(function(){});});});
+document.querySelectorAll('[data-cv-open]').forEach(function(el){
+  ['pointerenter','focus','touchstart'].forEach(function(ev){el.addEventListener(ev,function(){warm().catch(function(){});},{once:true,passive:true});});
+});
+function render(){
+  if(started)return;started=true;
+  busy(true);
+  var timer=setTimeout(fail,8000);
+  warm().then(function(){return paint();})
+    .then(function(){clearTimeout(timer);busy(false);})
+    .catch(function(){clearTimeout(timer);started=false;fail();});
+}
+var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(ov.classList.contains('on'))paint();},180);},{passive:true});
+addEventListener('orientationchange',function(){setTimeout(paint,320);});
 function open(e){if(e)e.preventDefault();last=document.activeElement;render();
-ov.classList.add('on');ov.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
-var x=ov.querySelector('[data-cv-close]');if(x)x.focus();}
+  ov.classList.add('on');ov.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  var x=ov.querySelector('[data-cv-close]');if(x)x.focus();}
 function close(){ov.classList.remove('on');ov.setAttribute('aria-hidden','true');document.body.style.overflow='';if(last&&last.focus)last.focus();}
 document.querySelectorAll('[data-cv-open]').forEach(function(el){
   el.addEventListener('click',open);
-  el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){open(ev);}});
+  el.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' ')open(ev);});
 });
-ov.addEventListener('click',function(ev){if(ev.target!==cv)close();});
+ov.addEventListener('click',function(ev){if(ev.target===ov||ev.target===wrap||ev.target.hasAttribute('data-cv-close'))close();});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&ov.classList.contains('on'))close();});
 })();
 </script>
+<style>/* dark mode: contact sits on its own shade */
+body.dark .contact{background:#101010;border-top:1px solid rgba(238,238,235,0.07)}
+</style>
+<style id="neutral-dark-html">html:has(body.dark){background:#0A0A0A}</style>
 </body>
 </html>
 

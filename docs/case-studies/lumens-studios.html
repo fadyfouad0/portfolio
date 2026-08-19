@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml" /><link rel="apple-touch-icon" href="../favicon.svg?v=3" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script>(function(){try{var t=localStorage.getItem('fady-theme');var dark=t?(t==='dark'):(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);if(dark)document.documentElement.classList.add('dark-pending');}catch(e){}})();</script>
@@ -2296,6 +2296,12 @@
     }
     .rack-hint .pulse { width: 7px; height: 7px; border-radius: 99px; background: var(--lm-lime); animation: pulse 1.4s ease-in-out infinite; flex: none; }
     .rack-hint .cta-ar { color: var(--lm-lime); }
+    /* the viewer is moved inline under the tapped tile, accordion style */
+    .rack-stage { display: flex; flex-direction: column; }
+    .rack-viewer.is-inline { margin: 0 0 6px; }
+    .rack-viewer[hidden] { display: none !important; }
+    .svc-tile .arrow::after { content: "View \2197"; }
+    .svc-tile.is-active .arrow::after { content: "Close \2715"; }
     .services-rack .browser-dark .scroll-box { height: 64vh; }
     .services-rack .browser-dark .chrome { height: 32px; }
     .services-rack .browser-dark .chrome .url { font-size: 10px; min-width: 0; padding: 3px 12px; }
@@ -2457,26 +2463,26 @@
   body.dark .stage-vis .stage-browser .chrome .url,
   body.dark .browser:not(.browser-dark) .chrome .url { color: #6B6B66; }
   body.dark {
-    --cream:        #000000;
-    --cream-2:      #121212;
+    --cream:        #0A0A0A;
+    --cream-2:      #141414;
     --sand:         #242424;
     --clay:         #C8FF3C;
-    --espresso:     #F2EAD8;
-    --espresso-soft:#CFC7B8;
-    --line:         rgba(242, 234, 216, 0.10);
-    --line-strong:  rgba(242, 234, 216, 0.22);
+    --espresso:     #EDEDEA;
+    --espresso-soft:#C0C0BC;
+    --line:         rgba(238, 238, 235, 0.10);
+    --line-strong:  rgba(238, 238, 235, 0.22);
     --accent:       #C8FF3C;
     --accent-deep:  #C8FF3C;
-    background-color: #000000 !important;
+    background-color: #0A0A0A !important;
     color: var(--espresso);
     --lm-black: #000000;
   }
   body.dark::before {
-    background-image: radial-gradient(circle at 1px 1px, rgba(242,234,216,0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(238,238,235,0.05) 1px, transparent 0);
     mix-blend-mode: screen; opacity: 0.5;
   }
   body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong); }
-  body.dark nav.top ul a:hover { background: rgba(242,234,216,0.09); color: var(--espresso); }
+  body.dark nav.top ul a:hover { background: rgba(238,238,235,0.09); color: var(--espresso); }
   body.dark .crumbT .at { background: rgba(20,18,16,0.92); border-color: var(--line-strong); }
   body.dark .crumbT .at .ar { color: var(--lm-lime); }
   body.dark .crumbT .fan a { background: rgba(20,18,16,0.95); }
@@ -2528,9 +2534,9 @@
 .cssw .stack .track a:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 .cssw .stack .track a:hover::before{opacity:1}
 .cssw .stack .track a.on{background:var(--pc)}
-body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(242,234,216,0.18)}
+body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(238,238,235,0.18)}
 body.dark .cssw .stack .t{color:#F2EAE0}
-body.dark .cssw .stack .track a{background:rgba(242,234,216,0.24)}
+body.dark .cssw .stack .track a{background:rgba(238,238,235,0.24)}
 @media(max-width:880px){.cssw{top:10px;left:12px;padding:7px 11px;gap:9px}.cssw .big{font-size:22px}}
 .cs-film,.cs-crumb,.cs-metro{display:none!important}
 
@@ -2541,7 +2547,7 @@ nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
 nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
 nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
-body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(238,238,235,0.09)}
 
 nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
@@ -2569,15 +2575,15 @@ nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-betwe
 nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
 nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
 body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
-body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(238,238,235,0.1)}
 body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
 body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
 body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
 body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
-body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
-body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+body.dark nav.top .cs-drop .df{border-color:rgba(238,238,235,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(238,238,235,0.07);color:#F2EAE0}
 @media(max-width:880px){nav.top .cs-drop{display:none}}
 </style>
 <nav class="top">
@@ -2634,7 +2640,7 @@ body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2
 .mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
 .mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
 .mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
-body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mm-sub .in{border-color:rgba(238,238,235,.14)}
 body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
 body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
 body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
@@ -2656,7 +2662,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <!-- HERO                                                   -->
 <!-- ====================================================== -->
 <style>
-.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;height:100lvh;min-height:560px;overflow:hidden}
 .cvh .cvh-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
 .cvh .cvh-bar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,color-mix(in srgb,var(--cvd) 0%,transparent) 0%,color-mix(in srgb,var(--cvd) 5%,transparent) 13%,color-mix(in srgb,var(--cvd) 13%,transparent) 25%,color-mix(in srgb,var(--cvd) 25%,transparent) 36%,color-mix(in srgb,var(--cvd) 40%,transparent) 47%,color-mix(in srgb,var(--cvd) 57%,transparent) 58%,color-mix(in srgb,var(--cvd) 74%,transparent) 69%,color-mix(in srgb,var(--cvd) 89%,transparent) 81%,color-mix(in srgb,var(--cvd) 97%,transparent) 91%,var(--cvd) 100%);color:#fff;padding:clamp(70px,12vh,130px) clamp(24px,5vw,72px) clamp(22px,3.2vh,34px);display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
 .cvh .cvh-bar::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px;opacity:0.4;mix-blend-mode:overlay;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%)}
@@ -2669,7 +2675,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 .cvh .cvh-lede em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--cva)}
 .cvh .cvh-mob{display:none}
 @media(max-width:860px){.cvh .cvh-bar{flex-direction:column;align-items:flex-start;gap:18px;padding-top:clamp(90px,26vh,160px)}.cvh .cvh-l{gap:8px}
-.cvh{background:url("../uploads/lumens-mobile-bg.jpg") center center / cover no-repeat #0B0B0B}
+.cvh{background:url("../uploads/lumens-mobile-bg.png") center center / cover no-repeat #0B0B0B}
 .cvh picture,.cvh>.cvh-img{display:none!important}
 .cvh .cvh-mob{display:block;position:absolute;top:var(--lm-mid,50%);left:50%;transform:translate(-50%,-50%);width:min(74vw,calc(100% - 56px));height:auto;max-height:calc(100% - var(--lm-top,84px) - var(--lm-bot,220px));object-fit:contain;z-index:2;pointer-events:none}}
 
@@ -2691,7 +2697,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#C8FF3C;--cvd:#0B0B0B">
-  <picture><source media="(max-width:860px)" srcset="../assets/lumens-cover-mobile.jpg" /><img class="cvh-img" src="../assets/lumens-cover.jpg" alt="Lumens Studios keyboard cover" /></picture>
+  <picture><source media="(max-width:860px)" srcset="../assets/lumens-cover-mobile.png" /><img class="cvh-img" src="../assets/lumens-cover.png" alt="Lumens Studios keyboard cover" /></picture>
   <img class="cvh-mob" src="../uploads/lumens-logo-mark.png" alt="Lumens Studios logo" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">Studio · Brand</span><h1 class="cvh-title">Lumens <em>Studios.</em></h1></div>
@@ -2841,7 +2847,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
         </div>
         <div class="scroll-box">
           <div class="scroll-inner" id="stageHomeScroll">
-            <img src="../assets/lumens-screens/home.jpg" alt="Lumens homepage, full scroll" />
+            <img src="../assets/lumens-screens/home.png" alt="Lumens homepage, full scroll" />
           </div>
           <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
         </div>
@@ -2870,7 +2876,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       </div>
       <div class="scroll-box">
         <div class="scroll-inner" id="aboutScroll">
-          <img src="../assets/lumens-screens/about-desktop.jpg" alt="Lumens about page, full scroll" />
+          <img src="../assets/lumens-screens/about-desktop.png" alt="Lumens about page, full scroll" />
         </div>
         <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
@@ -2904,7 +2910,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       </div>
       <div class="scroll-box">
         <div class="scroll-inner" id="servicesScroll">
-          <img src="../assets/lumens-screens/services-desktop.jpg" alt="Lumens services page, full scroll" />
+          <img src="../assets/lumens-screens/services-desktop.png" alt="Lumens services page, full scroll" />
         </div>
         <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
@@ -2931,7 +2937,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       <div class="right">Every service in the Lumens catalogue earns its own page — same dark surface, same lime accent, same five-block anatomy. Pick one to load the page on the right; the rest follow the same template, swapping only the photography and the conditional CTA.</div>
     </div>
 
-    <div class="rack-hint"><span class="pulse"></span>Tap a service to open its live page below <span class="cta-ar">↓</span></div>
+    <div class="rack-hint"><span class="pulse"></span>Tap a service to open its live page <span class="cta-ar">↓</span></div>
 
     <div class="rack-stage">
       <div class="rack-list" role="tablist" aria-label="Lumens services">
@@ -3014,7 +3020,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
           </div>
           <div class="scroll-box">
             <div class="scroll-inner" id="svcScroll">
-              <img id="svcScrollImg" src="../assets/lumens-screens/services/buzz-rush.jpg" alt="Buzz Rush service page — full scroll" />
+              <img id="svcScrollImg" src="../assets/lumens-screens/services/buzz-rush.png" alt="Buzz Rush service page — full scroll" />
             </div>
             <div class="scroll-hint"><span class="pulse"></span>SCROLL</div>
           </div>
@@ -3040,7 +3046,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
     <div class="mobile-card">
       <div class="phone">
-        <div class="scr"><div class="mscroll" id="mhomeScroll"><img src="../assets/lumens-screens/mobile-home.jpg" alt="Lumens mobile home, full scroll" /></div></div>
+        <div class="scr"><div class="mscroll" id="mhomeScroll"><img src="../assets/lumens-screens/mobile-home.png" alt="Lumens mobile home, full scroll" /></div></div>
         <div class="scroll-hint m"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
       <div class="caption">
@@ -3051,7 +3057,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
     <div class="mobile-card">
       <div class="phone">
-        <div class="scr"><div class="mscroll" id="maboutScroll"><img src="../assets/lumens-screens/mobile-about-2.jpg" alt="Lumens mobile about, full scroll" /></div></div>
+        <div class="scr"><div class="mscroll" id="maboutScroll"><img src="../assets/lumens-screens/mobile-about-2.png" alt="Lumens mobile about, full scroll" /></div></div>
         <div class="scroll-hint m"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
       <div class="caption">
@@ -3081,7 +3087,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <!-- NEXT                                                   -->
 <!-- ====================================================== -->
 <section class="cs-next wrap" data-screen-label="14 Next">
-  <div class="cs-next-eyebrow">// Next case study, 02 / 04</div>
+  <div class="cs-next-eyebrow">// Next project, 02 / 04</div>
   <a class="cs-next-link" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-cs="next-href" href="ai-assistants.html">
     <h3 data-cs="next-title">Le Blog du <em>Dirigeant</em></h3>
     <div class="arrow">→</div>
@@ -3171,13 +3177,13 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
     const count  = document.getElementById('svcCount');
     const inner  = document.getElementById('svcScroll');
     const data = {
-      'buzz-rush':    { name: 'Buzz Rush',           url: 'lumens.studio / buzz-rush',          img: '../assets/lumens-screens/services/buzz-rush.jpg' },
-      'web72':        { name: 'Web 72',              url: 'lumens.studio / web-72',             img: '../assets/lumens-screens/services/web72.jpg' },
-      'brandpop':     { name: 'Brand Pop',           url: 'lumens.studio / brand-pop',          img: '../assets/lumens-screens/services/brandpop.jpg' },
-      'design-plug':  { name: 'Design Plug',         url: 'lumens.studio / design-plug',        img: '../assets/lumens-screens/services/design-plug.jpg' },
-      'scene-drop':   { name: 'Scene Drop',          url: 'lumens.studio / scene-drop',         img: '../assets/lumens-screens/services/scene-drop.jpg' },
-      'community':    { name: 'Community Builders',  url: 'lumens.studio / community-builders', img: '../assets/lumens-screens/services/community-builders.jpg' },
-      'ctrl-scene':   { name: 'Ctrl + Scene',        url: 'lumens.studio / ctrl-scene',         img: '../assets/lumens-screens/services/ctrl-scene.jpg' }
+      'buzz-rush':    { name: 'Buzz Rush',           url: 'lumens.studio / buzz-rush',          img: '../assets/lumens-screens/services/buzz-rush.png' },
+      'web72':        { name: 'Web 72',              url: 'lumens.studio / web-72',             img: '../assets/lumens-screens/services/web72.png' },
+      'brandpop':     { name: 'Brand Pop',           url: 'lumens.studio / brand-pop',          img: '../assets/lumens-screens/services/brandpop.png' },
+      'design-plug':  { name: 'Design Plug',         url: 'lumens.studio / design-plug',        img: '../assets/lumens-screens/services/design-plug.png' },
+      'scene-drop':   { name: 'Scene Drop',          url: 'lumens.studio / scene-drop',         img: '../assets/lumens-screens/services/scene-drop.png' },
+      'community':    { name: 'Community Builders',  url: 'lumens.studio / community-builders', img: '../assets/lumens-screens/services/community-builders.png' },
+      'ctrl-scene':   { name: 'Ctrl + Scene',        url: 'lumens.studio / ctrl-scene',         img: '../assets/lumens-screens/services/ctrl-scene.png' }
     };
     tiles.forEach((tile, i) => {
       tile.addEventListener('click', () => {
@@ -3200,12 +3206,45 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
         name.textContent = d.name;
         count.textContent = String(i + 1).padStart(2, '0') + ' / 07';
         if (inner) inner.scrollTop = 0;
-        if (window.matchMedia('(max-width: 1100px)').matches) {
-          const v = document.querySelector('.rack-viewer');
-          if (v) { const y = v.getBoundingClientRect().top + window.scrollY - 76; window.scrollTo({ top: y, behavior: 'smooth' }); }
-        }
       });
     });
+
+    // ----- mobile: the viewer behaves as an accordion panel under the tapped tile -----
+    const viewer = document.querySelector('.rack-viewer');
+    const list   = document.querySelector('.rack-list');
+    const stage  = document.querySelector('.rack-stage');
+    const isMob  = () => window.matchMedia('(max-width: 1100px)').matches;
+    let openKey = null;
+    function collapse() {
+      openKey = null;
+      viewer.hidden = true;
+      tiles.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    }
+    function restoreDesktop() {
+      viewer.hidden = false;
+      viewer.classList.remove('is-inline');
+      if (viewer.parentElement !== stage) stage.appendChild(viewer);
+      openKey = null;
+    }
+    tiles.forEach(tile => {
+      // runs after the swap handler above, so the image is already correct
+      tile.addEventListener('click', () => {
+        if (!isMob()) return;
+        const key = tile.dataset.svc;
+        if (openKey === key) { collapse(); return; }
+        openKey = key;
+        viewer.hidden = false;
+        viewer.classList.add('is-inline');
+        tile.insertAdjacentElement('afterend', viewer);
+        requestAnimationFrame(() => {
+          const y = tile.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+      });
+    });
+    function sync() { if (isMob()) { if (openKey === null) collapse(); } else restoreDesktop(); }
+    sync();
+    addEventListener('resize', sync, { passive: true });
   })();
 
 
@@ -3361,8 +3400,11 @@ var top=Math.max(0,navBottom-h.top+4),bot=Math.max(0,h.bottom-textTop+4);
 hero.style.setProperty('--lm-top',top+'px');
 hero.style.setProperty('--lm-bot',bot+'px');
 hero.style.setProperty('--lm-mid',(top+(h.height-bot-top)/2)+'px');}
-fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+fit();var __fw=innerWidth;window.addEventListener('resize',function(){if(innerWidth===__fw)return;__fw=innerWidth;fit();});window.addEventListener('orientationchange',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
+<style id="mobile-foot-tighten">@media (max-width:720px){.cs-next{padding-bottom:0!important;border-bottom:0!important}.cs-foot{padding-block:20px 34px!important}}</style>
+<style id="next-full-bleed-hover">@media (max-width:880px){.cs-next-link{position:relative!important;padding-left:0!important;padding-right:0!important}.cs-next-link::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:transparent;transition:background .3s;z-index:0}.cs-next-link:hover::before,.cs-next-link:active::before{background:color-mix(in srgb, var(--proj) 14%, transparent)}.cs-next-link:hover,.cs-next-link:active{background:transparent!important;padding-left:0!important;padding-right:0!important}.cs-next-link>*{position:relative;z-index:1}}</style>
+<style id="neutral-dark-html">html:has(body.dark){background:#0A0A0A}</style>
 </body>
 </html>

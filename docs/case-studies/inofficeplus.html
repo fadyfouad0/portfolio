@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml" /><link rel="apple-touch-icon" href="../favicon.svg?v=3" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>InOfficePlus · Case Study · Fady Fouad</title>
@@ -475,7 +475,7 @@
   .swipe-hint, .swipe-dots { display: none; }
   .swipe-dots i { width: 6px; height: 6px; border-radius: 99px; background: rgba(34,24,18,0.2); transition: transform 0.3s, background 0.3s; }
   .swipe-dots i.on { background: var(--rust); transform: scale(1.35); }
-  body.dark .swipe-dots i { background: rgba(242,234,216,0.22); }
+  body.dark .swipe-dots i { background: rgba(238,238,235,0.22); }
   .phone-band { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; align-items: stretch; max-width: 880px; }
   .phone-cell { background: var(--cw); border: 1px solid rgba(34,24,18,0.10); border-radius: 24px; padding: 26px 22px 0; display: flex; flex-direction: column; box-shadow: 0 18px 38px rgba(26,61,124,0.14); }
   .phone-cell .cap { display: flex; align-items: baseline; gap: 10px; margin: 0 0 18px; }
@@ -744,14 +744,14 @@
 
   /* ====================== DARK MODE ====================== */
   body.dark {
-    --cream:        #000000;
-    --cream-2:      #121212;
+    --cream:        #0A0A0A;
+    --cream-2:      #141414;
     --sand:         #242424;
-    --clay:         #C49870;
-    --espresso:     #F2EAD8;
-    --espresso-soft:#D9CDB5;
-    --line:         rgba(242, 234, 216, 0.10);
-    --line-strong:  rgba(242, 234, 216, 0.22);
+    --clay:         #B9BEC6;
+    --espresso:     #EDEDEA;
+    --espresso-soft:#C0C0BC;
+    --line:         rgba(238, 238, 235, 0.10);
+    --line-strong:  rgba(238, 238, 235, 0.22);
     background-color: #000000;
     color: var(--espresso);
   }
@@ -759,14 +759,14 @@
     background-image: radial-gradient(circle at 1px 1px, rgba(80,172,228,0.12) 1px, transparent 0);
     mix-blend-mode: screen; opacity: 0.35;
   }
-  body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(242,234,216,0.22)); }
-  body.dark nav.top ul a:hover { background: rgba(242,234,216,0.09); color: var(--espresso); }
-  body.dark .cs-crumb { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(242,234,216,0.22)); }
+  body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(238,238,235,0.22)); }
+  body.dark nav.top ul a:hover { background: rgba(238,238,235,0.09); color: var(--espresso); }
+  body.dark .cs-crumb { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(238,238,235,0.22)); }
   body.dark .mobile-menu { background: var(--cream); }
   /* Fixed-identity regions keep their light-mode rendering (a light island, or a
      band that is already dark in light mode) by re-applying light-mode tokens. */
   body.dark .mob-panel { --espresso:#221812; --espresso-soft:#2E2118; --cream:#F8F4EC; --cream-2:#EADFC6; --line:rgba(34,24,18,0.14); --line-strong:rgba(34,24,18,0.28); }
-  body.dark .outcomes  { --espresso:#000000; --espresso-soft:#1B1B1E; --cream:#F8F4EC; --cream-2:#EADFC6; --line:rgba(248,244,236,0.18); }
+  body.dark .outcomes  { --espresso:#0A0A0A; --espresso-soft:#1B1B1E; --cream:#F8F4EC; --cream-2:#EADFC6; --line:rgba(238,238,235,0.18); }
   /* Paper surfaces become dark so flipped text stays readable */
   body.dark .laptop-band { background: var(--cream-2); }
   body.dark .bw-bar { background: #101012; }
@@ -798,10 +798,10 @@
   </div>
   <div class="strip">
     <a class="bk" href="../index.html#work">← All work</a>
-    <a class="case" style="--pc:#C8FF3C" href="lumens-studios.html"><img class="th" src="../assets/lumens-cover.jpg" alt="" />01 Lumens</a>
-    <a class="case" style="--pc:#7B4FBF" href="ai-assistants.html"><img class="th" src="../assets/le-blog-du-dirigeant-cover.jpg" alt="" />02 Le Blog</a>
-    <a class="case on" style="--pc:#50ACE4" href="inofficeplus.html" aria-current="page"><img class="th" src="../assets/inofficeplus-cover.jpg" alt="" />03 InOffice+</a>
-    <a class="case" style="--pc:#0E8A55" href="green-city.html"><img class="th" src="../assets/green-city-cover.jpg" alt="" />04 Green City</a>
+    <a class="case" style="--pc:#C8FF3C" href="lumens-studios.html"><img class="th" src="../assets/lumens-cover.png" alt="" />01 Lumens</a>
+    <a class="case" style="--pc:#7B4FBF" href="ai-assistants.html"><img class="th" src="../assets/le-blog-du-dirigeant-cover.png" alt="" />02 Le Blog</a>
+    <a class="case on" style="--pc:#50ACE4" href="inofficeplus.html" aria-current="page"><img class="th" src="../assets/inofficeplus-cover.png" alt="" />03 InOffice+</a>
+    <a class="case" style="--pc:#0E8A55" href="green-city.html"><img class="th" src="../assets/green-city-cover.png" alt="" />04 Green City</a>
   </div>
 </nav>
 
@@ -818,9 +818,9 @@
 .cssw .stack .track a:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 .cssw .stack .track a:hover::before{opacity:1}
 .cssw .stack .track a.on{background:var(--pc)}
-body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(242,234,216,0.18)}
+body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(238,238,235,0.18)}
 body.dark .cssw .stack .t{color:#F2EAE0}
-body.dark .cssw .stack .track a{background:rgba(242,234,216,0.24)}
+body.dark .cssw .stack .track a{background:rgba(238,238,235,0.24)}
 @media(max-width:880px){.cssw{top:10px;left:12px;padding:7px 11px;gap:9px}.cssw .big{font-size:22px}}
 .cs-film,.cs-crumb,.cs-metro{display:none!important}
 
@@ -831,7 +831,7 @@ nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
 nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
 nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
-body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(238,238,235,0.09)}
 
 nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
@@ -859,15 +859,15 @@ nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-betwe
 nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
 nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
 body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
-body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(238,238,235,0.1)}
 body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
 body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
 body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
 body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
-body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
-body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+body.dark nav.top .cs-drop .df{border-color:rgba(238,238,235,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(238,238,235,0.07);color:#F2EAE0}
 @media(max-width:880px){nav.top .cs-drop{display:none}}
 </style>
 <nav class="top">
@@ -924,7 +924,7 @@ body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2
 .mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
 .mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
 .mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
-body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mm-sub .in{border-color:rgba(238,238,235,.14)}
 body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
 body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
 body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
@@ -943,7 +943,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </div>
 
 <style>
-.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;height:100lvh;min-height:560px;overflow:hidden}
 .cvh .cvh-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .cvh .cvh-bar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,color-mix(in srgb,var(--cvd) 0%,transparent) 0%,color-mix(in srgb,var(--cvd) 3%,transparent) 13%,color-mix(in srgb,var(--cvd) 7%,transparent) 25%,color-mix(in srgb,var(--cvd) 13%,transparent) 36%,color-mix(in srgb,var(--cvd) 21%,transparent) 47%,color-mix(in srgb,var(--cvd) 30%,transparent) 58%,color-mix(in srgb,var(--cvd) 40%,transparent) 69%,color-mix(in srgb,var(--cvd) 50%,transparent) 81%,color-mix(in srgb,var(--cvd) 57%,transparent) 91%,color-mix(in srgb,var(--cvd) 62%,transparent) 100%);color:#fff;padding:clamp(70px,12vh,130px) clamp(24px,5vw,72px) clamp(22px,3.2vh,34px);display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
 .cvh .cvh-bar::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px;opacity:0.4;mix-blend-mode:overlay;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%)}
@@ -979,7 +979,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#5FB8ED;--cvd:#081326">
-  <picture><source media="(max-width:860px)" srcset="../assets/inoffice-cover-mobile.png" /><img class="cvh-img" src="../uploads/inoffii.jpg" alt="InOfficePlus services page" /></picture>
+  <picture><source media="(max-width:860px)" srcset="../assets/inoffice-cover-mobile.png" /><img class="cvh-img" src="../uploads/inoffii.png" alt="InOfficePlus services page" /></picture>
   <img class="cvh-mob" src="../uploads/Inofficeplus12.png" alt="InOfficePlus mobile site" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">SaaS · Payroll &amp; EOR</span><h1 class="cvh-title">InOffice<em>Plus.</em></h1></div>
@@ -1096,7 +1096,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <section class="show rev wrap" data-screen-label="09 Services screen">
   <div class="bw rv">
     <div class="bw-bar"><div class="bw-dots"><i></i><i></i><i></i></div><div class="bw-url">inofficeplus.com/services</div><div class="bw-hint">Hover to scroll</div></div>
-    <div class="bw-view"><img src="../assets/inoffice/services-page.jpg" alt="InOfficePlus services page" /></div>
+    <div class="bw-view"><img src="../assets/inoffice/services-page.png" alt="InOfficePlus services page" /></div>
   </div>
   <div class="show-copy rv d1">
     <div class="scr-label">Services</div>
@@ -1128,7 +1128,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       <div class="svc-body">
         <div class="bw">
           <div class="bw-bar"><div class="bw-dots"><i></i><i></i><i></i></div><div class="bw-url">inofficeplus.com/payroll</div><div class="bw-hint">Hover to scroll</div></div>
-          <div class="bw-view"><img src="../assets/inoffice/payroll-page.jpg" alt="InOfficePlus payroll page, full page" /></div>
+          <div class="bw-view"><img src="../assets/inoffice/payroll-page.png" alt="InOfficePlus payroll page, full page" /></div>
         </div>
         <ul class="svc-points">
         <li><span class="num">01</span><div><b>Payroll, run and compliant</b><p>The page leads with the core promise, accurate monthly payroll with tax, contributions and filings handled locally, so clients pay their team on time without touching the paperwork.</p></div></li>
@@ -1146,7 +1146,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       <div class="svc-body">
         <div class="bw">
           <div class="bw-bar"><div class="bw-dots"><i></i><i></i><i></i></div><div class="bw-url">inofficeplus.com/eor</div><div class="bw-hint">Hover to scroll</div></div>
-          <div class="bw-view"><img src="../assets/inoffice/eor-page.jpg" alt="InOfficePlus EOR page, full page" /></div>
+          <div class="bw-view"><img src="../assets/inoffice/eor-page.png" alt="InOfficePlus EOR page, full page" /></div>
         </div>
         <ul class="svc-points">
         <li><span class="num">01</span><div><b>Hire without a local entity</b><p>The page leads with the core promise, InOfficePlus becomes the legal employer on the client's behalf, so they can build a team in a new market without setting one up.</p></div></li>
@@ -1162,7 +1162,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <section class="show rev wrap" data-screen-label="11 Pricing">
   <div class="bw rv">
     <div class="bw-bar"><div class="bw-dots"><i></i><i></i><i></i></div><div class="bw-url">inofficeplus.com/pricing</div><div class="bw-hint">Hover to scroll</div></div>
-    <div class="bw-view"><img src="../assets/inoffice/pricing-page.jpg" alt="InOfficePlus pricing page, choose region, service and currency" /></div>
+    <div class="bw-view"><img src="../assets/inoffice/pricing-page.png" alt="InOfficePlus pricing page, choose region, service and currency" /></div>
   </div>
   <div class="show-copy rv d1">
     <div class="scr-label">Pricing</div>
@@ -1190,7 +1190,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
   </div>
 
   <div class="booking-shot rv d1">
-    <img src="../assets/inoffice/booking-screen.jpg" alt="InOfficePlus, book a call modal with calendar" />
+    <img src="../assets/inoffice/booking-screen.png" alt="InOfficePlus, book a call modal with calendar" />
   </div>
 
   <div class="booking-note rv">
@@ -1209,7 +1209,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
   <p class="resp-lead rv">Every page was rebuilt for the small screen. The layout adapts to any width, so the service story, the pricing table and the booking flow all stay clear and thumb-friendly.</p>
   <div class="swipe-hint" aria-hidden="true"><span>Swipe to explore</span> <span class="sh-ar">→</span></div>
   <div class="phone-band">
-    <div class="phone-cell rv" style="--cw:linear-gradient(165deg,#EAF4FD,#D6E9F9);--ct:#1B3B70;"><div class="cap"><b>Home</b><span>Mobile</span></div><div class="ph-shot"><div class="iph"><div class="iscr"><div class="ishot"><img src="../assets/inoffice/mob-home-v2.jpg" alt="Mobile home page" /></div></div></div></div></div>
+    <div class="phone-cell rv" style="--cw:linear-gradient(165deg,#EAF4FD,#D6E9F9);--ct:#1B3B70;"><div class="cap"><b>Home</b><span>Mobile</span></div><div class="ph-shot"><div class="iph"><div class="iscr"><div class="ishot"><img src="../assets/inoffice/mob-home-v2.png" alt="Mobile home page" /></div></div></div></div></div>
     <div class="phone-cell rv d1" style="--cw:linear-gradient(165deg,#E6F1FB,#C9E1F6);--ct:#1B3B70;"><div class="cap"><b>Services</b><span>Mobile</span></div><div class="ph-shot"><div class="iph"><div class="iscr"><div class="ishot"><img src="../assets/inoffice/mob-services.jpg" alt="Mobile services page" /></div></div></div></div></div>
   </div>
   <div class="swipe-dots" aria-hidden="true"><i></i><i></i></div>
@@ -1220,7 +1220,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
     </div>
     <div class="mob-phones">
       <div class="mob-device">
-        <div class="iph"><div class="iscr"><div class="ishot"><img src="../assets/inoffice/mob-home-v2.jpg" alt="Mobile home page" /></div></div></div>
+        <div class="iph"><div class="iscr"><div class="ishot"><img src="../assets/inoffice/mob-home-v2.png" alt="Mobile home page" /></div></div></div>
         <div class="pf-cap">Home</div>
       </div>
       <div class="mob-device mob-device--low">
@@ -1256,7 +1256,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
 <!-- ===================== NEXT ===================== -->
 <section class="cs-next wrap">
-  <div class="cs-next-eyebrow">// Next case study, 04 / 04</div>
+  <div class="cs-next-eyebrow">// Next project, 04 / 04</div>
   <a class="cs-next-link" style="--proj:#0E8A55;--proj-ink:#01613A;" href="green-city.html">
     <h3>Green <em>City</em></h3>
     <div class="arrow">→</div>
@@ -1439,8 +1439,54 @@ var h=hero.getBoundingClientRect(),b=bar.getBoundingClientRect(),cs=getComputedS
 var navBottom=nv?nv.getBoundingClientRect().bottom:70;
 hero.style.setProperty('--iop-top',Math.max(0,navBottom-h.top+4)+'px');
 hero.style.setProperty('--iop-bot',Math.max(0,h.bottom-textTop+4)+'px');}
-fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+fit();var __fw=innerWidth;window.addEventListener('resize',function(){if(innerWidth===__fw)return;__fw=innerWidth;fit();});window.addEventListener('orientationchange',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
+<style>/* responsive section: shared card colour, bigger cards, title+phone centered */
+.phone-cell{--cw:linear-gradient(165deg,#EAF4FD,#D6E9F9)!important;justify-content:center!important;gap:22px!important;padding:34px 26px!important;min-height:420px}
+.phone-cell .ph-shot{margin-top:0!important}
+.iph{max-width:280px!important}
+@media (max-width:880px){
+  .phone-cell{padding:30px 22px!important;min-height:380px}
+  .iph{max-width:236px!important}
+}
+</style>
+<style>/* closing note: match Le Blog / Green City spacing */
+@media (min-width:881px){
+  .closer{padding:150px 0!important;min-height:0!important;display:flex!important;align-items:center!important;justify-content:center!important}
+  .closer p{max-width:18ch!important;line-height:1.0!important;font-size:clamp(34px,5.4vw,92px)!important}
+}
+@media (max-width:880px){
+  .closer{padding:64px 0!important;min-height:42vh!important}
+}
+</style>
+<style>/* mobile: unify section gutter + force closer centering (overrides earlier conflicting rules) */
+@media (max-width:880px){
+  .wrap,.overview,.feature,.personas,.responsive,.ds,.outcomes .wrap,.closer .wrap,.mobile,.files,.build-intro,.show,.cs-next,.statement .wrap{padding-inline:28px!important}
+  .closer{display:flex!important;flex-direction:column;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;flex-direction:column;align-items:center!important;width:100%!important;padding-inline:28px!important;margin-inline:auto!important}
+  .closer p{width:100%!important;max-width:15ch!important;margin:0 auto!important;text-align:center!important}
+}
+</style>
+<style>/* closing note: narrow measure, centred, ~3 lines on any phone */
+@media (min-width:881px){.closer p{max-width:13ch!important}}
+@media (max-width:880px){
+  .closer{padding:64px 0!important;min-height:56svh!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important}
+  .closer p{max-width:11ch!important;margin:0 auto!important;text-align:center!important;font-size:clamp(30px,9.2vw,46px)!important;line-height:1.06!important;text-wrap:balance}
+}
+</style>
+<style id="mobile-foot-tighten">@media (max-width:720px){.cs-next{padding-bottom:0!important;border-bottom:0!important}.cs-foot{padding-block:20px 34px!important}}</style>
+<style id="next-full-bleed-hover">@media (max-width:880px){.cs-next-link{position:relative!important;padding-left:0!important;padding-right:0!important}.cs-next-link::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:transparent;transition:background .3s;z-index:0}.cs-next-link:hover::before,.cs-next-link:active::before{background:color-mix(in srgb, var(--proj) 14%, transparent)}.cs-next-link:hover,.cs-next-link:active{background:transparent!important;padding-left:0!important;padding-right:0!important}.cs-next-link>*{position:relative;z-index:1}}</style>
+<style id="iop-mobile-rhythm">@media (max-width:880px){
+  /* 01 Problem: illustration carries transparent padding, pull it tight */
+  .feature{gap:10px!important;padding-block:60px!important}
+  .feature .feat-illo{max-width:300px!important;margin-block:-46px!important}
+  /* overall band rhythm, a touch tighter */
+  :root{--m-sec:62px}
+  .closer{padding:76px 0!important;min-height:auto!important}
+  .cs-next{padding-block:62px 0!important}
+}</style>
+<style id="neutral-dark-html">html:has(body.dark){background:#0A0A0A}</style>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml" /><link rel="apple-touch-icon" href="../favicon.svg?v=3" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Le Blog du Dirigeant · Case Study · Fady Fouad</title>
@@ -402,24 +402,24 @@
     .ds-type { grid-template-columns: 1fr; gap: 22px; }
     .ds-specimen { text-align: left; } .ds-specimen .w { justify-content: flex-start; }
     /* Colour palette → two-column chip + label rows */
-    .ds-swatches { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 14px; height: auto; margin-top: 32px; border: none; border-radius: 0; overflow: visible; }
+    .ds-swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 12px; height: auto; margin-top: 32px; border: none; border-radius: 0; overflow: visible; }
     .pal-band {
       flex: none; min-width: 0; height: auto; min-height: 0; background: transparent !important;
-      display: grid; grid-template-columns: 38px 1fr; align-items: center; gap: 11px;
-      padding: 0; border: none; border-radius: 0; box-shadow: none;
+      display: block; padding: 0; border: none; border-radius: 0; box-shadow: none;
       writing-mode: horizontal-tb; letter-spacing: normal; position: relative;
     }
     .pal-band:hover { flex: none; }
     .pal-band::before {
-      content: ""; display: block; width: 38px; height: 38px; border-radius: 10px;
-      background: var(--sw); box-shadow: inset 0 0 0 1px rgba(34,24,18,0.14); margin: 0;
+      content: ""; display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 14px;
+      background: var(--sw); box-shadow: 0 6px 16px -8px rgba(34,24,18,0.28), inset 0 0 0 1px rgba(34,24,18,0.12);
+      margin-bottom: 10px;
     }
     .pal-band .nm { display: block; writing-mode: horizontal-tb; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; opacity: 1; text-transform: none; color: var(--espresso); transform: none; }
     .pal-band .hex { display: block; writing-mode: horizontal-tb; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.5; transform: none; margin-top: 3px; color: var(--espresso-soft); }
     .pal-band .hex s { display: none; }
     .pal-band + .pal-band, .pal-band.dk + .pal-band, .pal-band + .pal-band.dk { border-left: none; }
-    body.dark .ds-swatches { color: inherit; --espresso: #F2EAE0; --espresso-soft: #B5A99E; --line: rgba(242,234,216,0.12); }
-    body.dark .pal-band::before { box-shadow: inset 0 0 0 1px rgba(242,234,216,0.18); }
+    body.dark .ds-swatches { color: inherit; --espresso: #F2EAE0; --espresso-soft: #B5A99E; --line: rgba(238,238,235,0.12); }
+    body.dark .pal-band::before { box-shadow: inset 0 0 0 1px rgba(238,238,235,0.18); }
     .build-intro { padding-block: var(--m-sec) 48px; }
     .show { padding: var(--m-sec) 0; }
     .show-head { grid-template-columns: 1fr; gap: 18px; margin-bottom: var(--m-head); }
@@ -437,7 +437,7 @@
     .swipe-dots { display: flex !important; justify-content: center; gap: 7px; margin-top: 18px; }
     .swipe-dots i { width: 6px; height: 6px; border-radius: 99px; background: rgba(34,24,18,0.18); transition: background 0.3s, transform 0.3s; }
     .swipe-dots i.on { background: var(--rust); transform: scale(1.35); }
-    body.dark .swipe-dots i { background: rgba(242,234,216,0.22); }
+    body.dark .swipe-dots i { background: rgba(238,238,235,0.22); }
     .phone-band {
       display: flex; flex-direction: row; align-items: stretch; gap: 14px;
       overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
@@ -462,7 +462,7 @@
     .phone-cell .ph-shot { margin-top: auto; }
     .phone-cell .ph-shot img { width: 100%; max-width: 240px; margin: 0 auto; filter: drop-shadow(0 16px 24px rgba(34,24,18,0.18)); }
     .resp { grid-template-columns: 1fr; gap: var(--m-gap); margin-top: var(--m-gap); padding-top: var(--m-gap); }
-    .closer { padding: calc(var(--m-sec) * 1.5) 0; display: grid; place-items: center; min-height: 62vh; }
+    .closer { padding: 64px 0; display: grid; place-items: center; min-height: 42vh; }
     .closer .wrap { width: 100%; }
     .closer p { max-width: 15ch; font-size: clamp(38px, 10vw, 60px); }
     .outcomes { padding: var(--m-sec) 0; }
@@ -492,27 +492,27 @@
 
   /* ====================== DARK MODE ====================== */
   body.dark {
-    --cream:        #000000;
-    --cream-2:      #121212;
+    --cream:        #0A0A0A;
+    --cream-2:      #141414;
     --sand:         #242424;
-    --clay:         #C49870;
-    --espresso:     #F2EAD8;
-    --espresso-soft:#CFC7B8;
-    --line:         rgba(242, 234, 216, 0.10);
-    --line-strong:  rgba(242, 234, 216, 0.22);
-    background-color: #000000 !important;
+    --clay:         #B9BEC6;
+    --espresso:     #EDEDEA;
+    --espresso-soft:#C0C0BC;
+    --line:         rgba(238, 238, 235, 0.10);
+    --line-strong:  rgba(238, 238, 235, 0.22);
+    background-color: #0A0A0A !important;
     color: var(--espresso);
   }
   body.dark::before {
-    background-image: radial-gradient(circle at 1px 1px, rgba(242,234,216,0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(238,238,235,0.05) 1px, transparent 0);
     mix-blend-mode: screen; opacity: 0.5;
   }
   body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong); }
-  body.dark nav.top ul a:hover { background: rgba(242,234,216,0.09); color: var(--espresso); }
+  body.dark nav.top ul a:hover { background: rgba(238,238,235,0.09); color: var(--espresso); }
   body.dark .cs-crumb { background: rgba(20,18,16,0.92); border-color: var(--line-strong); }
   body.dark .mobile-menu { background: var(--cream); }
   /* Inverted band: in dark mode match the near-black page instead of warm brown */
-  body.dark .outcomes { --espresso:#000000; --espresso-soft:#1B1A1E; --cream:#F8F4EC; --cream-2:#EADFC6; --line:rgba(248,244,236,0.14); }
+  body.dark .outcomes { --espresso:#0A0A0A; --espresso-soft:#1B1A1E; --cream:#F8F4EC; --cream-2:#EADFC6; --line:rgba(238,238,235,0.14); }
   /* Pastel showcase islands stay light, with dark ink text */
   body.dark .show { color:#1A1320; --espresso:#1A1320; --espresso-soft:#3A3340; --cream:#F8F4EC; --line:rgba(34,24,18,0.12); }
   /* Palette strip keeps its real swatch colours and contrasting labels */
@@ -556,9 +556,9 @@
 .cssw .stack .track a:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 .cssw .stack .track a:hover::before{opacity:1}
 .cssw .stack .track a.on{background:var(--pc)}
-body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(242,234,216,0.18)}
+body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(238,238,235,0.18)}
 body.dark .cssw .stack .t{color:#F2EAE0}
-body.dark .cssw .stack .track a{background:rgba(242,234,216,0.24)}
+body.dark .cssw .stack .track a{background:rgba(238,238,235,0.24)}
 @media(max-width:880px){.cssw{top:10px;left:12px;padding:7px 11px;gap:9px}.cssw .big{font-size:22px}}
 .cs-film,.cs-crumb,.cs-metro{display:none!important}
 
@@ -569,7 +569,7 @@ nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
 nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
 nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
-body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(238,238,235,0.09)}
 
 nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
@@ -597,15 +597,15 @@ nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-betwe
 nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
 nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
 body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
-body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(238,238,235,0.1)}
 body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
 body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
 body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
 body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
-body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
-body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+body.dark nav.top .cs-drop .df{border-color:rgba(238,238,235,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(238,238,235,0.07);color:#F2EAE0}
 @media(max-width:880px){nav.top .cs-drop{display:none}}
 </style>
 <nav class="top">
@@ -662,7 +662,7 @@ body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2
 .mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
 .mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
 .mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
-body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mm-sub .in{border-color:rgba(238,238,235,.14)}
 body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
 body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
 body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
@@ -681,7 +681,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </div>
 
 <style>
-.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;height:100lvh;min-height:560px;overflow:hidden}
 .cvh .cvh-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .cvh .cvh-bar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,color-mix(in srgb,var(--cvd) 0%,transparent) 0%,color-mix(in srgb,var(--cvd) 3%,transparent) 13%,color-mix(in srgb,var(--cvd) 7%,transparent) 25%,color-mix(in srgb,var(--cvd) 13%,transparent) 36%,color-mix(in srgb,var(--cvd) 21%,transparent) 47%,color-mix(in srgb,var(--cvd) 30%,transparent) 58%,color-mix(in srgb,var(--cvd) 40%,transparent) 69%,color-mix(in srgb,var(--cvd) 50%,transparent) 81%,color-mix(in srgb,var(--cvd) 57%,transparent) 91%,color-mix(in srgb,var(--cvd) 62%,transparent) 100%);color:#fff;padding:clamp(70px,12vh,130px) clamp(24px,5vw,72px) clamp(22px,3.2vh,34px);display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
 .cvh .cvh-bar::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px;opacity:0.4;mix-blend-mode:overlay;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%)}
@@ -737,7 +737,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#C9C4F5;--cvd:#1A1230">
-  <picture><source media="(max-width:860px)" srcset="../assets/leblog-cover-mobile.png" /><img class="cvh-img" src="../uploads/bloggg.jpg" alt="Le Blog du Dirigeant, AI employees app" /></picture>
+  <picture><source media="(max-width:860px)" srcset="../assets/leblog-cover-mobile.png" /><img class="cvh-img" src="../uploads/bloggg.png" alt="Le Blog du Dirigeant, AI employees app" /></picture>
   <img class="cvh-mob" src="../uploads/leblog-mobile-group.png" alt="Le Blog du Dirigeant multi-agent chat on mobile" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">AI Product · 2025</span><h1 class="cvh-title">Le Blog <em>du Dirigeant.</em></h1></div>
@@ -821,15 +821,15 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
     </div>
   </div>
   <div class="ds-swatches rv">
-    <div class="pal-band" style="background:linear-gradient(180deg, #C7CEEA, #B5B9E4);--sw:linear-gradient(180deg, #C7CEEA, #B5B9E4);"><span class="nm">Lavender</span><span class="hex"><i>#C7CEEA</i><s> → #B5B9E4</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #FFDAC1, #FFE5B4);--sw:linear-gradient(180deg, #FFDAC1, #FFE5B4);"><span class="nm">Peach</span><span class="hex"><i>#FFDAC1</i><s> → #FFE5B4</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #E2F0CB, #C7E9B0);--sw:linear-gradient(180deg, #E2F0CB, #C7E9B0);"><span class="nm">Sage</span><span class="hex"><i>#E2F0CB</i><s> → #C7E9B0</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #FBE3E8, #F7C6D0);--sw:linear-gradient(180deg, #FBE3E8, #F7C6D0);"><span class="nm">Rose</span><span class="hex"><i>#FBE3E8</i><s> → #F7C6D0</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #A5D4D4, #95C9C9);--sw:linear-gradient(180deg, #A5D4D4, #95C9C9);"><span class="nm">Teal</span><span class="hex"><i>#A5D4D4</i><s> → #95C9C9</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #FF9AA2, #FFB7B2);--sw:linear-gradient(180deg, #FF9AA2, #FFB7B2);"><span class="nm">Coral</span><span class="hex"><i>#FF9AA2</i><s> → #FFB7B2</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #B5EAD7, #A2E4D8);--sw:linear-gradient(180deg, #B5EAD7, #A2E4D8);"><span class="nm">Mint</span><span class="hex"><i>#B5EAD7</i><s> → #A2E4D8</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #E1C6E8, #D5B5E2);--sw:linear-gradient(180deg, #E1C6E8, #D5B5E2);"><span class="nm">Lilac</span><span class="hex"><i>#E1C6E8</i><s> → #D5B5E2</s></span></div>
-    <div class="pal-band" style="background:linear-gradient(180deg, #FFEBB7, #FFDFA2);--sw:linear-gradient(180deg, #FFEBB7, #FFDFA2);"><span class="nm">Sun</span><span class="hex"><i>#FFEBB7</i><s> → #FFDFA2</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #C7CEEA, #B5B9E4);--sw2:#C7CEEA;--sw:linear-gradient(180deg, #C7CEEA, #B5B9E4);"><span class="nm">Lavender</span><span class="hex"><i>#C7CEEA</i><s> → #B5B9E4</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #FFDAC1, #FFE5B4);--sw2:#FFDAC1;--sw:linear-gradient(180deg, #FFDAC1, #FFE5B4);"><span class="nm">Peach</span><span class="hex"><i>#FFDAC1</i><s> → #FFE5B4</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #E2F0CB, #C7E9B0);--sw2:#E2F0CB;--sw:linear-gradient(180deg, #E2F0CB, #C7E9B0);"><span class="nm">Sage</span><span class="hex"><i>#E2F0CB</i><s> → #C7E9B0</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #FBE3E8, #F7C6D0);--sw2:#FBE3E8;--sw:linear-gradient(180deg, #FBE3E8, #F7C6D0);"><span class="nm">Rose</span><span class="hex"><i>#FBE3E8</i><s> → #F7C6D0</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #A5D4D4, #95C9C9);--sw2:#A5D4D4;--sw:linear-gradient(180deg, #A5D4D4, #95C9C9);"><span class="nm">Teal</span><span class="hex"><i>#A5D4D4</i><s> → #95C9C9</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #FF9AA2, #FFB7B2);--sw2:#FF9AA2;--sw:linear-gradient(180deg, #FF9AA2, #FFB7B2);"><span class="nm">Coral</span><span class="hex"><i>#FF9AA2</i><s> → #FFB7B2</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #B5EAD7, #A2E4D8);--sw2:#B5EAD7;--sw:linear-gradient(180deg, #B5EAD7, #A2E4D8);"><span class="nm">Mint</span><span class="hex"><i>#B5EAD7</i><s> → #A2E4D8</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #E1C6E8, #D5B5E2);--sw2:#E1C6E8;--sw:linear-gradient(180deg, #E1C6E8, #D5B5E2);"><span class="nm">Lilac</span><span class="hex"><i>#E1C6E8</i><s> → #D5B5E2</s></span></div>
+    <div class="pal-band" style="background:linear-gradient(180deg, #FFEBB7, #FFDFA2);--sw2:#FFEBB7;--sw:linear-gradient(180deg, #FFEBB7, #FFDFA2);"><span class="nm">Sun</span><span class="hex"><i>#FFEBB7</i><s> → #FFDFA2</s></span></div>
     <div class="pal-band dk" style="background:#1A1320;--sw:#1A1320;"><span class="nm">Ink</span><span class="hex"><i>#1A1320</i></span></div>
     <div class="pal-band" style="background:#FBF8F2;--sw:#FBF8F2;"><span class="nm">Paper</span><span class="hex"><i>#FBF8F2</i></span></div>
   </div>
@@ -965,7 +965,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
 <!-- ===================== NEXT ===================== -->
 <section class="cs-next wrap">
-  <div class="cs-next-eyebrow">// Next case study, 03 / 04</div>
+  <div class="cs-next-eyebrow">// Next project, 03 / 04</div>
   <a class="cs-next-link" style="--proj:#50ACE4;--proj-ink:#2E7CB0;" href="inofficeplus.html">
     <h3>InOffice<em>Plus</em></h3>
     <div class="arrow">→</div>
@@ -1071,7 +1071,7 @@ b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('
 html,body{overflow-x:hidden;-webkit-text-size-adjust:100%}
 @media (max-width:880px){
   .statement{padding-block:104px!important}
-  .overview{padding-block:72px!important;gap:20px!important}
+  .overview{padding-block:56px!important;gap:20px!important}
   .overview .ov-body p{font-size:16.5px!important;line-height:1.78!important;max-width:38ch!important}
   .overview .ov-body p + p{margin-top:18px!important}
   .feature{padding-block:96px!important;padding-inline:28px!important}
@@ -1082,7 +1082,7 @@ html,body{overflow-x:hidden;-webkit-text-size-adjust:100%}
   .sec-head{margin-bottom:52px!important;gap:18px!important}
   .persona{padding-block:30px!important}
   .build-intro{padding-block:100px 22px!important}
-  .show{padding-block:64px!important;gap:38px!important}
+  .show{padding-top:64px!important;padding-bottom:0!important;gap:38px!important}
   .show-copy p,.ann p{font-size:16.5px!important;line-height:1.7!important}
   .device-band{padding-block:92px!important}
   .device-head{margin-bottom:44px!important}
@@ -1136,8 +1136,40 @@ var h=hero.getBoundingClientRect(),b=bar.getBoundingClientRect(),cs=getComputedS
 var navBottom=nv?nv.getBoundingClientRect().bottom:70;
 hero.style.setProperty('--lbd-top',Math.max(0,navBottom-h.top+4)+'px');
 hero.style.setProperty('--lbd-bot',Math.max(0,h.bottom-textTop+4)+'px');}
-fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+fit();var __fw=innerWidth;window.addEventListener('resize',function(){if(innerWidth===__fw)return;__fw=innerWidth;fit();});window.addEventListener('orientationchange',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
+<style>/* mobile: unify section gutter + force closer centering (overrides earlier conflicting rules) */
+@media (max-width:880px){
+  .wrap,.overview,.feature,.personas,.responsive,.ds,.outcomes .wrap,.closer .wrap,.mobile,.files,.build-intro,.cs-next,.statement .wrap{padding-inline:28px!important}
+  .closer{display:flex!important;flex-direction:column;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;flex-direction:column;align-items:center!important;width:100%!important;padding-inline:28px!important;margin-inline:auto!important}
+  .closer p{width:100%!important;max-width:15ch!important;margin:0 auto!important;text-align:center!important}
+}
+</style>
+<style>/* closing note: narrow measure, centred, ~3 lines on any phone */
+@media (min-width:881px){.closer p{max-width:13ch!important}}
+@media (max-width:880px){
+  .closer{padding:64px 0!important;min-height:56svh!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important}
+  .closer p{max-width:11ch!important;margin:0 auto!important;text-align:center!important;font-size:clamp(30px,9.2vw,46px)!important;line-height:1.06!important;text-wrap:balance}
+}
+</style>
+<style id="mobile-foot-tighten">@media (max-width:720px){.cs-next{padding-bottom:0!important;border-bottom:0!important}.cs-foot{padding-block:20px 34px!important}}</style>
+<style id="mobile-tweaks-2">@media (max-width:880px){
+  /* palette: nine assistant colours only, drop Ink + Paper */
+  .ds-swatches .pal-band:nth-last-child(-n+2){display:none!important}
+  /* 03 · breathing room between the scaffold line and the Lexi band */
+  .build-intro{padding-bottom:78px!important}
+  /* closing note: sits tight under the responsive band, optically centred */
+  .mobile{padding-bottom:0!important}
+  .closer{min-height:auto!important;padding:72px 0 88px!important}
+  /* tighter gap after the cast strip */
+  .personas{padding-bottom:40px!important}
+  /* dark mode: lift the violet so it reads on black */
+  body.dark{--rust:#B79BEA!important;--rust-deep:#C9B4F2!important}
+}</style>
+<style id="next-full-bleed-hover">@media (max-width:880px){.cs-next-link{position:relative!important;padding-left:0!important;padding-right:0!important}.cs-next-link::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:transparent;transition:background .3s;z-index:0}.cs-next-link:hover::before,.cs-next-link:active::before{background:color-mix(in srgb, var(--proj) 14%, transparent)}.cs-next-link:hover,.cs-next-link:active{background:transparent!important;padding-left:0!important;padding-right:0!important}.cs-next-link>*{position:relative;z-index:1}}</style>
+<style id="neutral-dark-html">html:has(body.dark){background:#0A0A0A}</style>
 </body>
 </html>

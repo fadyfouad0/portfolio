@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../favicon.svg?v=3" type="image/svg+xml" /><link rel="apple-touch-icon" href="../favicon.svg?v=3" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Green City · Case Study · Fady Fouad</title>
@@ -62,7 +62,7 @@
   .wrap { max-width: 1480px; margin: 0 auto; padding: 0 56px; position: relative; z-index: 2; }
 
   /* leaf/sun motif */
-  .motif { position: absolute; pointer-events: none; color: var(--clay); opacity: 0.16; z-index: 0; }
+  .motif { position: absolute; pointer-events: none; color: var(--rust); opacity: 0.16; z-index: 0; }
   .motif svg { width: 100%; height: 100%; display: block; }
   @media (min-width: 1200px) { .feature .motif--problem { right: -45px; } }
   @media (min-width: 1500px) { .feature .motif--problem { right: -73px; } }
@@ -448,7 +448,7 @@
     .gc-swipe-dots { display: flex !important; justify-content: center; gap: 7px; margin-top: 18px; }
     .gc-swipe-dots i { width: 6px; height: 6px; border-radius: 99px; background: rgba(34,24,18,0.18); transition: background 0.3s, transform 0.3s; }
     .gc-swipe-dots i.on { background: var(--rust); transform: scale(1.35); }
-    body.dark .gc-swipe-dots i { background: rgba(242,234,216,0.22); }
+    body.dark .gc-swipe-dots i { background: rgba(238,238,235,0.22); }
     html, body { overflow-x: clip; max-width: 100%; }
     html, body { overflow-x: clip; max-width: 100%; }
     .wrap, section, .show, .feature, .overview { max-width: 100%; }
@@ -480,27 +480,27 @@
 
   /* ====================== DARK MODE ====================== */
   body.dark {
-    --cream:        #000000;
-    --cream-2:      #121212;
+    --cream:        #0A0A0A;
+    --cream-2:      #141414;
     --sand:         #242424;
-    --clay:         #C49870;
-    --espresso:     #F2EAD8;
-    --espresso-soft:#CFC7B8;
-    --line:         rgba(242, 234, 216, 0.10);
-    --line-strong:  rgba(242, 234, 216, 0.22);
-    background-color: #000000 !important;
+    --clay:         #B9BEC6;
+    --espresso:     #EDEDEA;
+    --espresso-soft:#C0C0BC;
+    --line:         rgba(238, 238, 235, 0.10);
+    --line-strong:  rgba(238, 238, 235, 0.22);
+    background-color: #0A0A0A !important;
     color: var(--espresso);
   }
   body.dark::before {
-    background-image: radial-gradient(circle at 1px 1px, rgba(242,234,216,0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(238,238,235,0.05) 1px, transparent 0);
     mix-blend-mode: screen; opacity: 0.5;
   }
-  body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(242,234,216,0.22)); }
-  body.dark nav.top ul a:hover { background: rgba(242,234,216,0.09); color: var(--espresso); }
-  body.dark .cs-crumb { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(242,234,216,0.22)); }
+  body.dark nav.top { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(238,238,235,0.22)); }
+  body.dark nav.top ul a:hover { background: rgba(238,238,235,0.09); color: var(--espresso); }
+  body.dark .cs-crumb { background: rgba(20,18,16,0.92); border-color: var(--line-strong, rgba(238,238,235,0.22)); }
   body.dark .mobile-menu { background: var(--cream); }
   /* Outcomes band in dark mode: deep forest-green panel, lifted off the near-black page */
-  body.dark .outcomes { --espresso:#000000; --espresso-soft:#141414; --cream:#F4F1E8; --cream-2:#E7E0CE; --line:rgba(228,240,232,0.16); }
+  body.dark .outcomes { --espresso:#0A0A0A; --espresso-soft:#141414; --cream:#F4F1E8; --cream-2:#E7E0CE; --line:rgba(228,240,232,0.16); }
   /* Brand green is too dark for accent TEXT on the dark page, lift it.
      (--rust / --rust-deep are only used as text/decorative fills here, never
      as a fill behind white text, so lifting them is safe.) */
@@ -538,9 +538,9 @@
 .cssw .stack .track a:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 .cssw .stack .track a:hover::before{opacity:1}
 .cssw .stack .track a.on{background:var(--pc)}
-body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(242,234,216,0.18)}
+body.dark .cssw{background:rgba(20,18,16,0.9);border-color:rgba(238,238,235,0.18)}
 body.dark .cssw .stack .t{color:#F2EAE0}
-body.dark .cssw .stack .track a{background:rgba(242,234,216,0.24)}
+body.dark .cssw .stack .track a{background:rgba(238,238,235,0.24)}
 @media(max-width:880px){.cssw{top:10px;left:12px;padding:7px 11px;gap:9px}.cssw .big{font-size:22px}}
 .cs-film,.cs-crumb,.cs-metro{display:none!important}
 
@@ -551,7 +551,7 @@ nav.top .has-cs>a.wk{display:inline-flex;align-items:center;gap:7px}
 nav.top .has-cs>a.wk .wk-cv{width:9px;height:9px;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1);opacity:.55}
 nav.top .has-cs:hover>a.wk .wk-cv,nav.top .has-cs:focus-within>a.wk .wk-cv{transform:rotate(180deg);opacity:1}
 nav.top .has-cs:hover>a.wk,nav.top .has-cs:focus-within>a.wk{background:rgba(34,24,18,0.06)}
-body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(242,234,216,0.09)}
+body.dark nav.top .has-cs:hover>a.wk,body.dark nav.top .has-cs:focus-within>a.wk{background:rgba(238,238,235,0.09)}
 
 nav.top .cs-drop{visibility:hidden;position:absolute;top:calc(100% + -4px);left:50%;transform:translateX(-50%) translateY(8px) scale(.97);transform-origin:top center;width:322px;background:#F8F4EC;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 30px 60px -26px rgba(34,24,18,0.55),0 2px 6px rgba(34,24,18,.06);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1);z-index:130}
 nav.top .cs-drop::after{content:"";position:absolute;bottom:100%;left:-20px;right:-20px;height:24px}
@@ -579,15 +579,15 @@ nav.top .cs-drop .df{display:flex;align-items:center;justify-content:space-betwe
 nav.top .cs-drop .df:hover{background:rgba(34,24,18,0.045);color:var(--espresso)}
 nav.top .cs-drop .df .fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#B3A79C}
 body.dark nav.top .cs-drop{background:#141210;border-color:var(--line-strong);box-shadow:0 30px 60px -24px rgba(0,0,0,.75)}
-body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(242,234,216,0.1)}
+body.dark nav.top .cs-drop .dh{color:#8C8177;border-color:rgba(238,238,235,0.1)}
 body.dark nav.top .cs-drop a.pr{color:#F2EAE0}
 body.dark nav.top .cs-drop a.pr .idx,body.dark nav.top .cs-drop a.pr .ar,body.dark nav.top .cs-drop a.pr .hpill{color:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr::before,body.dark nav.top .cs-drop a.pr .hpill i{background:var(--pc-dk,var(--pc))}
 body.dark nav.top .cs-drop a.pr .hpill{border-color:color-mix(in srgb,var(--pc-dk,var(--pc)) 45%,transparent)}
 body.dark nav.top .cs-drop a.pr:hover{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 17%,transparent)}
 body.dark nav.top .cs-drop a.pr.here{background:color-mix(in srgb,var(--pc-dk,var(--pc)) 19%,transparent)}
-body.dark nav.top .cs-drop .df{border-color:rgba(242,234,216,0.1);color:#B5A99E}
-body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2EAE0}
+body.dark nav.top .cs-drop .df{border-color:rgba(238,238,235,0.1);color:#B5A99E}
+body.dark nav.top .cs-drop .df:hover{background:rgba(238,238,235,0.07);color:#F2EAE0}
 @media(max-width:880px){nav.top .cs-drop{display:none}}
 </style>
 <nav class="top">
@@ -644,7 +644,7 @@ body.dark nav.top .cs-drop .df:hover{background:rgba(242,234,216,0.07);color:#F2
 .mobile-menu .mm-sub a.all{margin-top:8px;grid-template-columns:auto 1fr;min-height:48px}
 .mobile-menu .mm-sub a.all .idx{grid-row:auto;font-size:12px;opacity:.8;color:var(--rust);min-width:24px}
 .mobile-menu .mm-sub a.all .t{font-size:14px;font-weight:500;letter-spacing:.01em;color:var(--rust)}
-body.dark .mm-sub .in{border-color:rgba(242,234,216,.14)}
+body.dark .mm-sub .in{border-color:rgba(238,238,235,.14)}
 body.dark .mobile-menu .mm-sub a{color:#F2EAE0}
 body.dark .mobile-menu .mm-sub a .idx,body.dark .mobile-menu .mm-sub a .ar{color:var(--pc-dk,var(--pc-ink))}
 body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .m{color:var(--pc-dk,var(--pc-ink))}
@@ -663,7 +663,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </div>
 
 <style>
-.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+.cvh{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;height:100vh;height:100svh;height:100lvh;min-height:560px;overflow:hidden}
 .cvh .cvh-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center}
 .cvh .cvh-bar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,color-mix(in srgb,var(--cvd) 0%,transparent) 0%,color-mix(in srgb,var(--cvd) 3%,transparent) 13%,color-mix(in srgb,var(--cvd) 7%,transparent) 25%,color-mix(in srgb,var(--cvd) 13%,transparent) 36%,color-mix(in srgb,var(--cvd) 21%,transparent) 47%,color-mix(in srgb,var(--cvd) 30%,transparent) 58%,color-mix(in srgb,var(--cvd) 40%,transparent) 69%,color-mix(in srgb,var(--cvd) 50%,transparent) 81%,color-mix(in srgb,var(--cvd) 57%,transparent) 91%,color-mix(in srgb,var(--cvd) 62%,transparent) 100%);color:#fff;padding:clamp(70px,12vh,130px) clamp(24px,5vw,72px) clamp(22px,3.2vh,34px);display:flex;align-items:flex-end;justify-content:space-between;gap:36px}
 .cvh .cvh-bar::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px 160px;opacity:0.4;mix-blend-mode:overlay;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%)}
@@ -698,7 +698,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#149B62;--cvd:#0B0B0B;background:#0F6B45">
-  <picture><source media="(max-width:860px)" srcset="../assets/greencity-cover-mobile.jpg" /><img class="cvh-img" src="../uploads/grnnew.jpg" alt="Green City resorts website" /></picture>
+  <picture><source media="(max-width:860px)" srcset="../assets/greencity-cover-mobile.png" /><img class="cvh-img" src="../uploads/grnnew.png" alt="Green City resorts website" /></picture>
   <img class="cvh-mob" src="../uploads/greencity-mobile-group.png" alt="Green City website on mobile" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">Hospitality · Fractional ownership</span><h1 class="cvh-title">Green <em>City.</em></h1></div>
@@ -728,7 +728,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 <section class="feature" data-screen-label="04 Problem">
   <span class="eyebrow rv">// 01 · Problem</span>
   <div class="body">
-    <h3 class="rv">A premium offer, buried<br>by a <em>cluttered</em> site.</h3>
+    <h3 class="rv">A premium offer, buried by a <em>cluttered</em> site.</h3>
     <p class="rv d1">The old website fought its own brand. A weak visual hierarchy, overwhelming image clutter and poor content organisation made a genuinely premium offer feel <em>untrustworthy</em>, and added friction to every step of the booking journey.</p>
     <p class="rv d2">The job was to make four resorts feel <em>credible</em> and easy to explore in a single scroll, and to earn enough trust that a first-time visitor would <em>convert</em>.</p>
   </div>
@@ -908,7 +908,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
 <!-- ===================== NEXT ===================== -->
 <section class="cs-next wrap">
-  <div class="cs-next-eyebrow">// Next case study, 01 / 04</div>
+  <div class="cs-next-eyebrow">// Next project, 01 / 04</div>
   <a class="cs-next-link" style="--proj:#C8FF3C;--proj-ink:#5E7E00;" href="lumens-studios.html">
     <h3>Lumens <em>Studios</em></h3>
     <div class="arrow">→</div>
@@ -1042,12 +1042,13 @@ b.addEventListener('click',function(){setTimeout(function(){m.classList.toggle('
 html,body{overflow-x:hidden;-webkit-text-size-adjust:100%}
 @media (max-width:880px){
   .statement{padding-block:104px!important}
-  .overview{padding-block:84px!important;gap:34px!important}
+  .overview{padding-block:56px!important;gap:24px!important}
   .overview .ov-body p{font-size:16.5px!important;line-height:1.78!important}
   .feature{padding-block:96px!important;padding-inline:28px!important}
   .feature .body h3{margin-bottom:26px!important}
   .feature .body p{font-size:17px!important;line-height:1.68!important;margin-bottom:20px!important}
-  .personas,.responsive{padding-block:92px!important}
+  .personas{padding-block:92px!important}
+  .responsive{padding-top:92px!important;padding-bottom:0!important}
   .ds{padding-block:92px 0!important}
   .sec-head{margin-bottom:52px!important;gap:18px!important}
   .persona{padding-block:30px!important}
@@ -1113,8 +1114,46 @@ var h=hero.getBoundingClientRect(),b=bar.getBoundingClientRect(),cs=getComputedS
 var navBottom=nv?nv.getBoundingClientRect().bottom:70;
 hero.style.setProperty('--gc-top',Math.max(0,navBottom-h.top+4)+'px');
 hero.style.setProperty('--gc-bot',Math.max(0,h.bottom-textTop+4)+'px');}
-fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+fit();var __fw=innerWidth;window.addEventListener('resize',function(){if(innerWidth===__fw)return;__fw=innerWidth;fit();});window.addEventListener('orientationchange',fit);window.addEventListener('load',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
 })();
 </script>
+<style>/* responsive section: desktop phones float free (Le Blog treatment); cards are mobile-only */
+@media (min-width:881px){
+  .responsive{padding-top:80px;padding-bottom:0}
+  .resp-head{margin-bottom:46px}
+  .phone-row{gap:22px!important;align-items:end}
+  .pf-item{background:none;border:0;border-radius:0;box-shadow:none;padding:0;max-width:260px}
+  .pf-cap{margin-top:18px!important}
+  .closer{padding:150px 0;min-height:0}
+  .closer p{max-width:18ch;line-height:1.0;font-size:clamp(34px,5.4vw,92px)}
+}
+@media (max-width:880px){
+  /* match Le Blog's carousel: edge-to-edge band, 78% cells, 14px gap */
+  /* band spans the full viewport so the next phone peeks in from the right */
+  .phone-row{gap:14px!important;align-items:stretch!important;width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;padding:4px 20px!important;scroll-padding-left:20px}
+  .pf-item{background:none;border:0;border-radius:0;box-shadow:none;padding:0;flex:0 0 66%!important;width:66%!important;max-width:none!important}
+  .pf{width:100%!important;max-width:215px;margin:0 auto}
+  .pf-cap{margin-top:16px!important;text-align:center}
+}
+</style>
+<style>/* mobile: unify section gutter + force closer centering (overrides earlier conflicting rules) */
+@media (max-width:880px){
+  .wrap,.overview,.feature,.personas,.responsive,.ds,.outcomes .wrap,.closer .wrap,.mobile,.files,.build-intro,.show,.cs-next,.statement .wrap{padding-inline:28px!important}
+  .closer{display:flex!important;flex-direction:column;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;flex-direction:column;align-items:center!important;width:100%!important;padding-inline:28px!important;margin-inline:auto!important}
+  .closer p{width:100%!important;max-width:15ch!important;margin:0 auto!important;text-align:center!important}
+}
+</style>
+<style>/* closing note: narrow measure, centred, ~3 lines on any phone */
+@media (min-width:881px){.closer p{max-width:13ch!important}}
+@media (max-width:880px){
+  .closer{padding:64px 0!important;min-height:56svh!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+  .closer .wrap{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important}
+  .closer p{max-width:11ch!important;margin:0 auto!important;text-align:center!important;font-size:clamp(30px,9.2vw,46px)!important;line-height:1.06!important;text-wrap:balance}
+}
+</style>
+<style id="mobile-foot-tighten">@media (max-width:720px){.cs-next{padding-bottom:0!important;border-bottom:0!important}.cs-foot{padding-block:20px 34px!important}}</style>
+<style id="next-full-bleed-hover">@media (max-width:880px){.cs-next-link{position:relative!important;padding-left:0!important;padding-right:0!important}.cs-next-link::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:transparent;transition:background .3s;z-index:0}.cs-next-link:hover::before,.cs-next-link:active::before{background:color-mix(in srgb, var(--proj) 14%, transparent)}.cs-next-link:hover,.cs-next-link:active{background:transparent!important;padding-left:0!important;padding-right:0!important}.cs-next-link>*{position:relative;z-index:1}}</style>
+<style id="neutral-dark-html">html:has(body.dark){background:#0A0A0A}</style>
 </body>
 </html>

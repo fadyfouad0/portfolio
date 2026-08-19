@@ -120,4 +120,26 @@
   function boot(){ document.querySelectorAll(SEL).forEach(mount); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
+
+  /* Switchers (resort tabs, persona tabs, any control that swaps the screen
+     inside a frame) send their frames back to the top, so a reader never lands
+     mid-page on the newly shown screen. */
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('button, [role="tab"], [data-img], [data-shot], [data-src]');
+    if (!t || t.classList.contains('ss-guard') || t.closest('.ss-frame')) return;
+    var scope = t.closest('section') || document;
+    function top(){
+      scope.querySelectorAll('.ss-scroller').forEach(function(s){ s.scrollTop = 0; });
+      scope.querySelectorAll('.ss-frame').forEach(function(f){
+        f.classList.remove('ss-on');
+        var cue = f.querySelector('.ss-cue'), fade = f.querySelector('.ss-fade.bot');
+        if (cue) cue.classList.remove('gone');
+        if (fade) fade.classList.remove('gone');
+      });
+      release();
+    }
+    top();
+    setTimeout(top, 60);
+    setTimeout(top, 320);
+  });
 })();
