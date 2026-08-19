@@ -2697,8 +2697,8 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 </style>
 <!-- ===================== HERO ===================== -->
 <section class="cvh" data-screen-label="01 Hero" style="--cva:#C8FF3C;--cvd:#0B0B0B">
-  <picture><source media="(max-width:860px)" srcset="../assets/lumens-cover-mobile.png" /><img class="cvh-img" src="../assets/lumens-cover.png" alt="Lumens Studios keyboard cover" /></picture>
-  <img class="cvh-mob" src="../uploads/lumens-logo-mark.png" alt="Lumens Studios logo" />
+  <picture><source media="(max-width:860px)" srcset="../assets/lumens-cover-mobile.png" /><img loading="eager" fetchpriority="high" decoding="async" class="cvh-img" src="../assets/lumens-cover.jpg" alt="Lumens Studios keyboard cover" /></picture>
+  <img loading="eager" fetchpriority="high" decoding="async" class="cvh-mob" src="../uploads/lumens-logo-mark.png" alt="Lumens Studios logo" />
   <div class="cvh-bar">
     <div class="cvh-l"><span class="cvh-tag">Studio · Brand</span><h1 class="cvh-title">Lumens <em>Studios.</em></h1></div>
   </div>
@@ -2777,7 +2777,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
     <div class="lm-board-grid">
       <div class="lm-wordmark">
         <span class="tag">/ Logo · primary</span>
-        <img class="logo" src="../assets/lumens-logo-green.png" alt="Lumens wordmark, signal lime, italic slant" />
+        <img loading="lazy" decoding="async" class="logo" src="../assets/lumens-logo-green.png" alt="Lumens wordmark, signal lime, italic slant" />
         <span class="axis"></span>
         <span class="axis-r"></span>
       </div>
@@ -2847,7 +2847,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
         </div>
         <div class="scroll-box">
           <div class="scroll-inner" id="stageHomeScroll">
-            <img src="../assets/lumens-screens/home.png" alt="Lumens homepage, full scroll" />
+            <img loading="lazy" decoding="async" src="../assets/lumens-screens/home.jpg" alt="Lumens homepage, full scroll" />
           </div>
           <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
         </div>
@@ -2876,7 +2876,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       </div>
       <div class="scroll-box">
         <div class="scroll-inner" id="aboutScroll">
-          <img src="../assets/lumens-screens/about-desktop.png" alt="Lumens about page, full scroll" />
+          <img loading="lazy" decoding="async" src="../assets/lumens-screens/about-desktop.jpg" alt="Lumens about page, full scroll" />
         </div>
         <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
@@ -2910,7 +2910,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
       </div>
       <div class="scroll-box">
         <div class="scroll-inner" id="servicesScroll">
-          <img src="../assets/lumens-screens/services-desktop.png" alt="Lumens services page, full scroll" />
+          <img loading="lazy" decoding="async" src="../assets/lumens-screens/services-desktop.jpg" alt="Lumens services page, full scroll" />
         </div>
         <div class="scroll-hint"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
@@ -3020,7 +3020,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
           </div>
           <div class="scroll-box">
             <div class="scroll-inner" id="svcScroll">
-              <img id="svcScrollImg" src="../assets/lumens-screens/services/buzz-rush.png" alt="Buzz Rush service page — full scroll" />
+              <img loading="lazy" decoding="async" id="svcScrollImg" src="../assets/lumens-screens/services/buzz-rush.jpg" alt="Buzz Rush service page — full scroll" />
             </div>
             <div class="scroll-hint"><span class="pulse"></span>SCROLL</div>
           </div>
@@ -3046,7 +3046,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
     <div class="mobile-card">
       <div class="phone">
-        <div class="scr"><div class="mscroll" id="mhomeScroll"><img src="../assets/lumens-screens/mobile-home.png" alt="Lumens mobile home, full scroll" /></div></div>
+        <div class="scr"><div class="mscroll" id="mhomeScroll"><img loading="lazy" decoding="async" src="../assets/lumens-screens/mobile-home.jpg" alt="Lumens mobile home, full scroll" /></div></div>
         <div class="scroll-hint m"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
       <div class="caption">
@@ -3057,7 +3057,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
 
     <div class="mobile-card">
       <div class="phone">
-        <div class="scr"><div class="mscroll" id="maboutScroll"><img src="../assets/lumens-screens/mobile-about-2.png" alt="Lumens mobile about, full scroll" /></div></div>
+        <div class="scr"><div class="mscroll" id="maboutScroll"><img loading="lazy" decoding="async" src="../assets/lumens-screens/mobile-about-2.jpg" alt="Lumens mobile about, full scroll" /></div></div>
         <div class="scroll-hint m"><span class="pulse"></span>HOVER TO SCROLL</div>
       </div>
       <div class="caption">
@@ -3177,7 +3177,7 @@ body.dark .mobile-menu .mm-sub a.here .t,body.dark .mobile-menu .mm-sub a.here .
     const count  = document.getElementById('svcCount');
     const inner  = document.getElementById('svcScroll');
     const data = {
-      'buzz-rush':    { name: 'Buzz Rush',           url: 'lumens.studio / buzz-rush',          img: '../assets/lumens-screens/services/buzz-rush.png' },
+      'buzz-rush':    { name: 'Buzz Rush',           url: 'lumens.studio / buzz-rush',          img: '../assets/lumens-screens/services/buzz-rush.jpg' },
       'web72':        { name: 'Web 72',              url: 'lumens.studio / web-72',             img: '../assets/lumens-screens/services/web72.png' },
       'brandpop':     { name: 'Brand Pop',           url: 'lumens.studio / brand-pop',          img: '../assets/lumens-screens/services/brandpop.png' },
       'design-plug':  { name: 'Design Plug',         url: 'lumens.studio / design-plug',        img: '../assets/lumens-screens/services/design-plug.png' },

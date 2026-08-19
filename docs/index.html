@@ -1561,7 +1561,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   body.dark .cv-ov-x{background:rgba(10,10,10,0.72)}
   @keyframes cvFade{from{opacity:0}to{opacity:1}}
   @keyframes cvRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  .cv-ov-frame{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(14px,4vh,56px);overflow:auto;-webkit-overflow-scrolling:touch}
+  .cv-ov-frame{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(8px,1.6vh,20px);overflow:auto;-webkit-overflow-scrolling:touch}
   @media (max-width:700px){.cv-ov-frame{padding:8px}.cv-ov-x{top:12px;right:12px;width:38px;height:38px}}
   #cvCanvas,#cvFrame{display:block;border-radius:3px;background:#fff;box-shadow:0 34px 70px -34px rgba(0,0,0,0.55);animation:cvRise .38s cubic-bezier(.2,.8,.2,1) both}
   #cvCanvas{max-width:100%;height:auto}
@@ -1711,7 +1711,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
   <h1 class="hero-title">
     <span style="color: var(--espresso);">
     hey,</span> <em>i'm</em><br/>
-    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img src="assets/fady-portrait-v13.png" alt="Fady Fouad portrait" /></span><br/>
+    <span style="color: var(--espresso);">Fady</span> <span class="mark" aria-hidden="true"><img loading="eager" fetchpriority="high" decoding="async" src="assets/fady-portrait-v13.png" alt="Fady Fouad portrait" /></span><br/>
     <span style="color: var(--espresso);">a</span> <em>designer</em><br/>
     <span style="color: var(--espresso);">of</span> <em>useful</em><br/>
     <span class="marked" style="color: var(--espresso);">interfaces.</span>
@@ -1776,7 +1776,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
 2024–26.</h2>
   </div>
 
-  <a class="project reveal" data-color="rust" style="--proj:#C8FF3C;--proj-ink:#5E7E00;" data-preview="LUMENS / STUDIOS" data-shot="assets/lumens-screens/home.png" href="case-studies/lumens-studios.html">
+  <a class="project reveal" data-color="rust" style="--proj:#C8FF3C;--proj-ink:#5E7E00;" data-preview="LUMENS / STUDIOS" data-shot="assets/lumens-screens/home.jpg" href="case-studies/lumens-studios.html">
     <div class="project-num">/01</div>
     <div class="project-info">
       <h3>Lumens <em>Studios</em></h3>
@@ -1790,12 +1790,12 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="assets/lumens-cover.png" alt="Lumens Studios, keyboard cover with neon lime wordmark" />
+      <img loading="lazy" decoding="async" src="assets/lumens-cover.jpg" alt="Lumens Studios, keyboard cover with neon lime wordmark" />
       <div class="ph-tag">/01</div>
     </div>
   </a>
 
-  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/Le Blog du Dirigeant Homepage.png" href="case-studies/ai-assistants.html">
+  <a class="project reveal" data-color="espresso" style="--proj:#7B4FBF;--proj-ink:#6A3FAD;" data-preview="LE BLOG / DU DIRIGEANT" data-shot="uploads/leblog-home-shot.jpg" href="case-studies/ai-assistants.html">
     <div class="project-num">/02</div>
     <div class="project-info">
       <h3>Le Blog du <em>Dirigeant</em></h3>
@@ -1809,7 +1809,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/bloggg.png" alt="Le Blog du Dirigeant, AI assistants platform cover" />
+      <img loading="lazy" decoding="async" src="uploads/bloggg.png" alt="Le Blog du Dirigeant, AI assistants platform cover" />
       <div class="ph-tag">/02</div>
     </div>
   </a>
@@ -1828,7 +1828,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/inoffii.png" alt="InOfficePlus, marketing site cover" />
+      <img loading="lazy" decoding="async" src="uploads/inoffii.png" alt="InOfficePlus, marketing site cover" />
       <div class="ph-tag">/03</div>
     </div>
   </a>
@@ -1847,7 +1847,7 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <div class="project-cta">View project <span class="arrow">→</span></div>
     </div>
     <div class="project-thumb has-image">
-      <img src="uploads/grnnew.png" alt="Green City, sustainability platform cover" />
+      <img loading="lazy" decoding="async" src="uploads/grnnew.jpg" alt="Green City, sustainability platform cover" />
       <div class="ph-tag">/04</div>
     </div>
   </a>
@@ -1918,8 +1918,8 @@ body.dark .mobile-menu .mm-sub a.pr.here .t,body.dark .mobile-menu .mm-sub a.pr.
       <a class="magnet" id="emailMagnet" data-cta="say hi" href="mailto:fadyfouad00@gmail.com">Say hi · fadyfouad00@gmail.com
 →</a>
       <div class="contact-socials">
-        <a href="https://www.behance.net/fadyfouad9" target="_blank" rel="noopener" aria-label="Behance"><img src="assets/behance-logo.png" alt="Behance" /></a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/linkedin-logo.png" alt="LinkedIn" /></a>
+        <a href="https://www.behance.net/fadyfouad9" target="_blank" rel="noopener" aria-label="Behance"><img loading="lazy" decoding="async" src="assets/behance-logo.png" alt="Behance" /></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><img loading="lazy" decoding="async" src="assets/linkedin-logo.png" alt="LinkedIn" /></a>
       </div>
     </div>
   </div>
